@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识"><meta name="keywords" content="嵌入式,单片机,硬件"><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><title>2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识 | MagicConch's Blog</title><link rel="shortcut icon" href="/conch_128.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"C0EZAB28OP","apiKey":"41a49d206f0aa547441f944ea14ee883","indexName":"MagicConch","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.3.0'
+} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MagicConch's Blog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E9%98%BBresistor"><span class="toc-number">1.</span> <span class="toc-text"> 电阻(Resistor)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text"> 电容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.</span> <span class="toc-text"> 二极管</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text"> 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text"> 分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E5%88%AB%E6%AD%A3-%E8%B4%9F%E7%94%B5%E6%9E%81"><span class="toc-number">3.3.</span> <span class="toc-text"> 判别正、负电极</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%82%96%E7%89%B9%E5%9F%BA%E4%BA%8C%E6%9E%81%E7%AE%A1"><span class="toc-number">3.4.</span> <span class="toc-text"> 肖特基二极管</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1"><span class="toc-number">4.</span> <span class="toc-text"> 三极管</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text"> 三极管的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E8%BF%90%E4%BD%9C%E6%9C%BA%E7%90%86-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%991-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%992-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%993"><span class="toc-number">4.2.</span> <span class="toc-text"> 三极管原理及其运作机理 参考资料1 参考资料2 参考资料3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 三极管的结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 三极管的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E5%AF%BC%E9%80%9A%E5%8E%9F%E7%90%86%E7%9A%84%E5%BE%AE%E8%A7%82%E5%88%86%E6%9E%90-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%994"><span class="toc-number">4.2.3.</span> <span class="toc-text"> 三极管导通原理的微观分析 参考资料4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E6%9E%81%E7%AE%A1%E5%AF%BC%E9%80%9A%E5%8E%9F%E7%90%86%E7%9A%84%E7%9B%B4%E8%A7%82%E5%88%86%E6%9E%90"><span class="toc-number">4.2.4.</span> <span class="toc-text"> 三极管导通原理的直观分析</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">MagicConch</div><div class="author-info__description text-center">一个嵌入式萌新，在这里记录学习历程</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">14</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">5</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">6</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/top_img.webp)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">MagicConch's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-20</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/">2.2.单片机硬件基础</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">1.6k</span><span class="post-meta__separator">|</span><span>Reading time: 4 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="电阻resistor"><a class="markdownIt-Anchor" href="#电阻resistor"></a> 电阻(Resistor)</h2>
+<p>贴片电阻的识别方法(两种):</p>
+<p>三位：它的第一位和第二位为有效数字，第三位表示在有效数字后面所加“0”的个数．这一位不会出现字母。<br />
+例如：“472”表示“4700Ω”；“151”表示“150”</p>
+<p>四位：前三位表示有效数字，第4位表示在有效数字后面所加“0”的个数。<br />
+例如：“2702”表示27000Ω=27kΩ</p>
+<h2 id="电容"><a class="markdownIt-Anchor" href="#电容"></a> 电容</h2>
+<p>电容器在调谐、旁路、耦合、<font color=red>滤波</font>等电路中起着重要的作用。<br />
+在直流电路中，电容器是相当于断路的。电容器是一种能够储藏电荷的元件，也是最常用的电子元件之一（通交流  隔直流）。</p>
+<h2 id="二极管"><a class="markdownIt-Anchor" href="#二极管"></a> 二极管</h2>
+<h3 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h3>
+<p>二极管的主要原理就是利用PN结的单向导电性，在PN结上加上引线和封装就成了一个二极管。</p>
+<h3 id="分类"><a class="markdownIt-Anchor" href="#分类"></a> 分类</h3>
+<p>发光二极管、光电二极管、稳压管、面接触型二极管、点接触型二极管…<br />
+（肖特基二极管）</p>
+<h3 id="判别正-负电极"><a class="markdownIt-Anchor" href="#判别正-负电极"></a> 判别正、负电极</h3>
+<ol>
+<li>观察外壳上的符号标记。通常在二极管的外壳上标有二极管的符号，带有三角形箭头的一端为正极，另一端是负极。</li>
+<li>观察外壳上的色点。在点接触二极管的外壳上，通常标有极性色点(白色或红色)。一般标<font color=red>有色点的一端即为正极</font>。还有的二极管上标有色环，<font color=red>带色环的一端则为负极</font>。</li>
+<li>以阻值较小的一次测量为准，黑表笔所接的一端为正极，红表笔所接的一端则为负极。</li>
+<li>观察二极管外壳，带有银色带一端为负极。</li>
+</ol>
+<h3 id="肖特基二极管"><a class="markdownIt-Anchor" href="#肖特基二极管"></a> 肖特基二极管</h3>
+<p>肖特基二极管的最大特点是正向压降小，反向恢复时间短。肖特基二极管的开启电压低，电荷储存效应小，适于<font color=red>高频工作</font>。同样的电流情况下，它的正向压降要比普通二极管小许多。还具有损耗小、噪声低、检波灵敏度高、稳定可靠等特点，在微波通信和雷达中用于混频、检波、调制、倍频以及超高速开关、低噪声放大等。</p>
+<p>肖特基二极管与普通二极管最明显的区别有以下几点：</p>
+<ol>
+<li>肖特基二极管正向导通压降比普通二极管低，所以<font color=red>低功耗</font>。</li>
+<li>肖特基二极管反向恢复时间比普通二极管短，所以<font color=red>工作频率更高</font>。</li>
+<li>肖特基二极管<font color=red>反向耐压比普通二极管低</font>，一般低于200V。</li>
+<li>肖特基二极管比普通的二极管<font color=red>通过的电流强</font>。</li>
+<li>肖特基二极管比普通二极管的<font color=red>结电容小</font>。</li>
+<li>肖特基二极管<font color=red>可以通过高频电流</font>。</li>
+</ol>
+<h2 id="三极管"><a class="markdownIt-Anchor" href="#三极管"></a> 三极管</h2>
+<h3 id="三极管的概念"><a class="markdownIt-Anchor" href="#三极管的概念"></a> 三极管的概念</h3>
+<p>三极管，全称应为半导体三极管，也称双极型晶体管、晶体三极管，是一种控制电流的半导体器件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">三极管的作用是把微弱信号放大成幅度值较大的电信号，也用作无触点开关。</span><br></pre></td></tr></table></figure>
+<h3 id="三极管原理及其运作机理-参考资料1-参考资料2-参考资料3"><a class="markdownIt-Anchor" href="#三极管原理及其运作机理-参考资料1-参考资料2-参考资料3"></a> 三极管原理及其运作机理 <a target="_blank" rel="noopener" href="https://www.zhihu.com/tardis/zm/art/53040143?source_id=1003"><strong>参考资料1</strong></a> <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2113271"><strong>参考资料2</strong></a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/ybhuangfugui/article/details/107373558"><strong>参考资料3</strong></a></h3>
+<h4 id="三极管的结构"><a class="markdownIt-Anchor" href="#三极管的结构"></a> 三极管的结构</h4>
+<p>三极管的结构简单来说是在一个硅（或锗）片上生成三个杂质半导体区域，一个P区（或N区）夹在两个N区（或P区）中间。所以三极管一般分为NPN型或PNP型，材质分为硅管或锗管。<br />
+从三个杂质半导体区域各引出一个电极分别叫发射极e、集电极c、基极b，相对应的杂质区域分布称为发射区、集电区、基区。三个区域形成两个PN结，发射区与基区间的PN结称为发射结，集电区和基区间的PN结称为集电结。</p>
+<p>P1是两种类型三极管的概念图，其中发射极上的箭头表示发射结加正偏电压时，发射极的电流方向。<br />
+<img src="/img/2.2.2/NPN%E5%92%8CPNP%E5%9E%8B%E4%B8%89%E6%9E%81%E7%AE%A1%E5%BE%AE%E8%A7%82%E6%9E%84%E9%80%A0.jpg" alt="P1.NPN和PNP型三极管微观构造.jpg" /></p>
+<p>由于二极管由一个PN结组成，为便于理解可以将三极管看作为两个二极管串联，如P2，但是增加基区电流显然不能使三极管导通，所以并不完全等价。<br />
+正确的理解中，<font color=red><strong>三极管其实是两个靠得很近的二极管串联，这二极管之间的距离就是基区宽度(典型值2微米)，这个宽度必须远小于基区少子的扩散距离(典型值30微米)，这也是三极管导通的关键所在</strong></font>。<br />
+<img src="/img/2.2.2/%E4%B8%89%E6%9E%81%E7%AE%A1%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF.jpg" alt="P2.三极管等效电路.jpg" /></p>
+<p>以下是两种三极管的符号，接下来的分析将围绕NPN型三极管展开，PNP型三极管原理与其一致。<br />
+<img src="/img/2.2.2/NPN%E5%92%8CPNP%E5%9E%8B%E4%B8%89%E6%9E%81%E7%AE%A1%E7%AC%A6%E5%8F%B7.webp" alt="P3.NPN和PNP型三极管符号.webp" /></p>
+<h4 id="三极管的作用"><a class="markdownIt-Anchor" href="#三极管的作用"></a> 三极管的作用</h4>
+<ol>
+<li>电流放大</li>
+<li>开关</li>
+</ol>
+<p>对于NPN型，基极高电平（基级b电势比发射e极高0.7V）导通；<br />
+对于PNP型，基极低电平（发射极e电势比基级b高0.7V）导通。<br />
+三极管工作在饱和区通常为开关作用，三极管工作在放大区通常为放大作用。</p>
+<p>对于NPN型三极管来说：<br />
+基级b电压较小时，工作于截止状态；<br />
+基级b电压比发射极e电压高0.7V时，工作于放大状态，集电极c电流为基级b电流的β倍；<br />
+当基级电流较大时，三极管工作于饱和状态，集电极与发射极之间的压降极小，通过二极管的电流由集电极电阻决定，若集电极不加电阻，三极管极有可能过流烧毁。</p>
+<p><img src="/img/2.2.2/%E4%B8%89%E6%9E%81%E7%AE%A1%E6%88%AA%E6%AD%A2%E5%8C%BA%E3%80%81%E9%A5%B1%E5%92%8C%E5%8C%BA%E3%80%81%E6%94%BE%E5%A4%A7%E5%8C%BA%E5%92%8C%E5%87%BB%E7%A9%BF%E5%8C%BA.jpg" alt="P4.三极管截止区、饱和区、放大区和击穿区.jpg" /></p>
+<h4 id="三极管导通原理的微观分析-参考资料4"><a class="markdownIt-Anchor" href="#三极管导通原理的微观分析-参考资料4"></a> 三极管导通原理的微观分析 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/36475338/answer/1786789671"><strong>参考资料4</strong></a></h4>
+<p>上面“三极管结构”中红色加粗字道出了三极管的本质，</p>
+<h4 id="三极管导通原理的直观分析"><a class="markdownIt-Anchor" href="#三极管导通原理的直观分析"></a> 三极管导通原理的直观分析</h4>
+<p>P5是NPN三极管导通的直观图解，绿色的箭头是基极电流，绿色小水流推动杠杆打开阀门，允许较大的蓝色水流通过阀门。增大绿色的水流就能间接增大蓝色的水流<br />
+<img src="/img/2.2.2/%E4%B8%89%E6%9E%81%E7%AE%A1%E7%9B%B4%E8%A7%82%E5%9B%BE%E8%A7%A31.png" alt="P5.三极管直观图解1.png" /></p>
+<p>如图P6，当基级电流较大(即绿色小水流较大)时，三极管工作于饱和状态，集电极与发射极之间的压降极小(阀门完全打开)，通过二极管的电流由集电极电阻决定，若集电极不加电阻(限流阀门)，三极管极有可能过流烧毁。<br />
+<img src="/img/2.2.2/%E4%B8%89%E6%9E%81%E7%AE%A1%E7%9B%B4%E8%A7%82%E5%9B%BE%E8%A7%A32.png" alt="P6.三极管直观图解2.png" /></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MagicConch</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://magic989.github.io/2023/08/20/2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识/">https://magic989.github.io/2023/08/20/2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><a class="post-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><a class="post-meta__tags" href="/tags/%E7%A1%AC%E4%BB%B6/">硬件</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2023/08/20/2.2.1-%E4%BA%A4%E6%B5%81%E7%94%B5%E4%B8%A8%E7%9B%B4%E6%B5%81%E7%94%B5/"><span>2.2.1-交流电丨直流电</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '83ec5ffc47398a66b4ec',
+  clientSecret: 'e4202d09f658b7f1f791b51906d46a0ffdec3d51',
+  repo: 'blog-comment',
+  owner: 'Magic989',
+  admin: 'Magic989',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(/img/top_img.webp)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2023 By MagicConch</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/algolia.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
