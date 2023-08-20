@@ -9,7 +9,42 @@
   },
   hexoVersion: '6.3.0'
 } </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MagicConch's Blog" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">MagicConch</div><div class="author-info__description text-center">一个嵌入式萌新，在这里记录学习历程</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">5</span></a></div></div></div><nav id="nav" style="background-image: url(/img/top_img.webp)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">MagicConch's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">MagicConch's Blog</div><div id="site-sub-title">孰能相与于无相与，相为于无相为？孰能登天游雾，挠挑无极，相忘以生，无所终穷？</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/19/2.1.2.6-C%E8%AF%AD%E8%A8%80%E6%9D%A1%E4%BB%B6%E9%A2%84%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4(if-ifdef-ifndef)/">2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><p>条件编译命令最主要还是在工程头文件中使用，主要是是属于硬件层的代码。</p>
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">MagicConch</div><div class="author-info__description text-center">一个嵌入式萌新，在这里记录学习历程</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">5</span></a></div></div></div><nav id="nav" style="background-image: url(/img/top_img.webp)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">MagicConch's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">MagicConch's Blog</div><div id="site-sub-title">孰能相与于无相与，相为于无相为？孰能登天游雾，挠挑无极，相忘以生，无所终穷？</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/20/2.1.2.7-C%E8%AF%AD%E8%A8%80%E6%95%B0%E7%BB%84%E5%92%8C%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%B5%8B%E5%80%BC%E4%BB%A5%E5%8F%8Acode%E3%80%81const%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/">2.1.2.7-C语言数组和多维数组的定义与赋值以及code、const关键字的使用</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><h2 id="数组"><a class="markdownIt-Anchor" href="#数组"></a> 数组</h2>
+<h3 id="数组的定义"><a class="markdownIt-Anchor" href="#数组的定义"></a> 数组的定义</h3>
+<p>指存储一个固定大小的、类型相同的顺序集合。数组用来存储一组类型相同的变量。</p>
+<h3 id="数组的语法结构"><a class="markdownIt-Anchor" href="#数组的语法结构"></a> 数组的语法结构</h3>
+<p>数组定义语句的基本结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datatype arrayName[length];</span><br></pre></td></tr></table></figure>
+<p>各部分定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datatype    <span class="comment">// 数据类型，</span></span><br><span class="line">arrayName   <span class="comment">// 数组名称，</span></span><br><span class="line">length      <span class="comment">// 数组长度，不能为变量。</span></span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> l602Dat[<span class="number">16</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="定义与初始化数组的方法"><a class="markdownIt-Anchor" href="#定义与初始化数组的方法"></a> 定义与初始化数组的方法</h3>
+<p>方法1：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> unm[<span class="number">10</span>]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法2：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> unm[]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>在单片机程序中还有最常见的一种定义，是keil特有的关键字，对数组进行了修饰。</p>
+<p>例：char <font color=red>code</font> str[7]=”LCD1602”;</p>
+<p>加了code之后，变量存储到ROM FLASH中；若没有code，则变量存储到RAM中。</p>
+<p>变量存储在ROM和RAM的区别：写入到ROM中的变量不可在程序运行过程中发生改变，而存放在RAM中的变量可以随着程序的运行不断改变。</p>
+<p>由于单片机追求低成本、低功耗。而RAM相比于ROM更加昂贵，也更耗电。为了节约成本，降低耗电量，大多数时候会考虑将程序运行过程中不会发生变动的变量写入到ROM中。</p>
+<p><font color=red>注</font>：<strong>在keil MDK(stm32)中，需要用const代替code。</strong></p>
+<p>在硬件层面上也很好理解，在<a href="https://magic989.github.io/2023/08/18/2.1.1.1-%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3/#%E5%8D%95%E7%89%87%E6%9C%BA%E8%B5%84%E6%BA%90%E6%9C%89%E5%93%AA%E4%BA%9B">单片机资源</a>中，flash ROM是代码(code)所在的空间，而程序代码空间毋庸置疑是不可以随意更改的，将这部分变量存储到代码空间不仅提高了程序可读性还有节约成本和降低功耗的作用。</p>
+<h3 id="数组的赋值"><a class="markdownIt-Anchor" href="#数组的赋值"></a> 数组的赋值</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> unm[<span class="number">10</span>];</span><br><span class="line">unm[<span class="number">5</span>] = <span class="number">15</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="数组的存储结构"><a class="markdownIt-Anchor" href="#数组的存储结构"></a> 数组的存储结构</h3>
+<p><img src="/img/2.1.2.7/%E6%95%B0%E7%BB%84%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.webp" alt="数组的存储结构" /></p>
+<h2 id="c语言多维数组定义与赋值"><a class="markdownIt-Anchor" href="#c语言多维数组定义与赋值"></a> C语言多维数组定义与赋值</h2>
+<p>多维数组定义语句的语法结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataType arrayName[length1][length2][length3]..;</span><br></pre></td></tr></table></figure>
+<p>各部分定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">datatype    <span class="comment">// 数据类型</span></span><br><span class="line">arrayName   <span class="comment">// 数组名</span></span><br><span class="line">length1     <span class="comment">// 第一维下标的长度</span></span><br><span class="line">length2     <span class="comment">// 第二维下标的长度,</span></span><br><span class="line">length3     <span class="comment">// 第三维下标的长度</span></span><br></pre></td></tr></table></figure>
+<p>三维数组实例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> Dat2[<span class="number">2</span>][<span class="number">3</span>][<span class="number">4</span>] = &#123;&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;&#125;,&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<p>在n维数组unsigned char Data4[a_1][a_2][a_3]…[a_n]中，[a_1]是最高层的一维，[a_n]是最低层的一维。[a_n]的这一维度中仅有数字，而[a_1]的这一维中却包含着其他维度。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/19/2.1.2.6-C%E8%AF%AD%E8%A8%80%E6%9D%A1%E4%BB%B6%E9%A2%84%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4(if-ifdef-ifndef)/">2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><p>条件编译命令最主要还是在工程头文件中使用，主要是是属于硬件层的代码。</p>
 <h2 id="if语句的语法结构"><a class="markdownIt-Anchor" href="#if语句的语法结构"></a> #if语句的语法结构</h2>
 <p><strong>语法结构：</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> 表达式1</span></span><br><span class="line">    <span class="comment">// 程序代码块1</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> 表达式2</span></span><br><span class="line">    <span class="comment">// 程序代码块2</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> 表达式3</span></span><br><span class="line">    <span class="comment">// 程序代码块3</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="comment">// 程序代码块4</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
@@ -153,7 +188,7 @@ continue：语句用于do while、for、while循环语句中时，可停止本�
 2.只有一个出口。<br />
 3.结构内的每一部分都有机会被执行到。<br />
 4.结构内不存在死循环。</p>
-<p><img src="/img/2.4/%E7%BB%93%E6%9E%84%E5%8C%96%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.webp" alt="结构化流程图的三种基本结构" /></p>
+<p><img src="/img/2.1.2.3/%E7%BB%93%E6%9E%84%E5%8C%96%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.webp" alt="结构化流程图的三种基本结构" /></p>
 <h3 id="n-s流程图不常用"><a class="markdownIt-Anchor" href="#n-s流程图不常用"></a> N-S流程图（不常用）</h3>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/360921957">N-S图（盒图）详解（附案例）</a></p>
 <h3 id="伪代码"><a class="markdownIt-Anchor" href="#伪代码"></a> 伪代码</h3>
@@ -319,7 +354,7 @@ continue：语句用于do while、for、while循环语句中时，可停止本�
 变量：就是一种在程序执行过程中其值不断变化的量。<br />
 常量：就是其定义之后数值不会变化的量</p>
 <h2 id="变量的数据类型"><a class="markdownIt-Anchor" href="#变量的数据类型"></a> 变量的数据类型</h2>
-<p><img src="/img/2.2/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%B1%87%E6%80%BB.webp" alt="数据类型汇总" /></p>
+<p><img src="/img/2.1.2.1/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%B1%87%E6%80%BB.webp" alt="数据类型汇总" /></p>
 <table>
 <thead>
 <tr>
@@ -599,52 +634,6 @@ HEX为单片机可识别的文件</p>
 <h3 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h3>
 <p>由此可见，目录和标签的设置思路几乎一模一样。<br />
 scaffolds目录下，是新建页面的模板，执行新建命令时，是根据这里的模板页来完成的，所以可以在这里根据你自己的需求添加一些默认值。我们可以打开scaffolds/post.md文件，在tages:上面加入categories:,保存后，之后执行&quot;hexo new 文章名&quot;命令生成的文件，.md文件顶部就有&quot;categories:&quot;项（当然我个人更倾向于直接在/sourse/_posts中创建文件，这样似乎更加方便）。</p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/17/1.2-HEXO%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">1.2-HEXO常用命令</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/1-HEXO/">1.HEXO</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/HEXO/">HEXO</a></span><div class="content"><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hexo serve</td>
-<td>在本机4000端口上运行博客web服务</td>
-<td>测试用</td>
-</tr>
-<tr>
-<td>hexo clean</td>
-<td>清除本地缓存</td>
-<td>推送到远程仓库前清理缓存</td>
-</tr>
-<tr>
-<td>hexo g</td>
-<td>生成本地静态网页</td>
-<td></td>
-</tr>
-<tr>
-<td>hexo algolia</td>
-<td>调用api生成 algolia 索引</td>
-<td></td>
-</tr>
-<tr>
-<td>hexo d</td>
-<td>推送更改到远程地址</td>
-<td></td>
-</tr>
-<tr>
-<td>hexo new page categories</td>
-<td>创建新类别</td>
-<td>每篇文章只能处于一个类别中或者一个类别的子类别中</td>
-</tr>
-<tr>
-<td>hexo new page tags</td>
-<td>创建新标签</td>
-<td>每篇文章可以有多个标签</td>
-</tr>
-</tbody>
-</table>
 </div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(/img/top_img.webp)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2023 By MagicConch</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/algolia.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
