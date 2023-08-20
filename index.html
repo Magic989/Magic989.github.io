@@ -1,0 +1,652 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="一个嵌入式萌新，在这里记录学习历程"><meta name="keywords" content=""><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><title>孰能相与于无相与，相为于无相为？孰能登天游雾，挠挑无极，相忘以生，无所终穷？ | MagicConch's Blog</title><link rel="shortcut icon" href="/conch_128.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"C0EZAB28OP","apiKey":"41a49d206f0aa547441f944ea14ee883","indexName":"MagicConch","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.3.0'
+} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MagicConch's Blog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">MagicConch</div><div class="author-info__description text-center">一个嵌入式萌新，在这里记录学习历程</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">5</span></a></div></div></div><nav id="nav" style="background-image: url(/img/top_img.webp)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">MagicConch's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">MagicConch's Blog</div><div id="site-sub-title">孰能相与于无相与，相为于无相为？孰能登天游雾，挠挑无极，相忘以生，无所终穷？</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/19/2.1.2.6-C%E8%AF%AD%E8%A8%80%E6%9D%A1%E4%BB%B6%E9%A2%84%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4(if-ifdef-ifndef)/">2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><p>条件编译命令最主要还是在工程头文件中使用，主要是是属于硬件层的代码。</p>
+<h2 id="if语句的语法结构"><a class="markdownIt-Anchor" href="#if语句的语法结构"></a> #if语句的语法结构</h2>
+<p><strong>语法结构：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> 表达式1</span></span><br><span class="line">    <span class="comment">// 程序代码块1</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> 表达式2</span></span><br><span class="line">    <span class="comment">// 程序代码块2</span></span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> 表达式3</span></span><br><span class="line">    <span class="comment">// 程序代码块3</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="comment">// 程序代码块4</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p><font color=red><em>注意</em></font>：<strong>表达式必须为一个整数型常量</strong></p>
+<h3 id="if-表达式1"><a class="markdownIt-Anchor" href="#if-表达式1"></a> #if 表达式1</h3>
+<p>若表达式1为真，则执行程序代码1；若为假，则不执行代码1 ，同时跳转到elif，去判断表达式2是否为真。若没有#elif，直接跳转到#else。若没有#else，直接跳转到#endif。</p>
+<h3 id="elif-表达式2"><a class="markdownIt-Anchor" href="#elif-表达式2"></a> #elif 表达式2</h3>
+<p>若#if条件判断为假，则跳转到本语句，需要判断表达式2是否为真，若为真，则执行程序代码块2；若为假，则跳转到下面的语句继续判断。</p>
+<h3 id="else"><a class="markdownIt-Anchor" href="#else"></a> #else</h3>
+<p>若以上的表达式皆假，则执行#else包含的程序代码块。</p>
+<h3 id="endif"><a class="markdownIt-Anchor" href="#endif"></a> #endif</h3>
+<p>和#if是配套使用的，不能省略。</p>
+<h3 id="if-elif-else-endif代码示例"><a class="markdownIt-Anchor" href="#if-elif-else-endif代码示例"></a> (#if-#elif-#else-#endif)代码示例</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> OPTION 2</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> OPTION == 1</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Option 1 is selected.\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> OPTION == 2</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Option 2 is selected.\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">elif</span> OPTION == 3</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Option 3 is selected.\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;No valid option is selected.\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个示例中，#define OPTION 2 定义了一个名为 OPTION 的预处理宏，并将其设置为 2。然后，使用 #if、#elif 和 #else 来根据不同的选项编译不同的代码块。</p>
+<p>根据 OPTION 的值，编译器会选择性地编译对应的代码块。在这个例子中，OPTION 的值是 2，所以编译器会编译 “Option 2 is selected.\n” 这行代码。</p>
+<p>这个例子展示了如何使用条件预编译指令来在不同条件下编译不同的代码，从而实现灵活的代码控制。</p>
+<h2 id="ifdef语句的语法结构"><a class="markdownIt-Anchor" href="#ifdef语句的语法结构"></a> #ifdef语句的语法结构</h2>
+<p><strong>语法结构：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> 表达式</span></span><br><span class="line">    <span class="comment">// 程序代码块1</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="comment">// 程序代码块2</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="ifdef-表达式"><a class="markdownIt-Anchor" href="#ifdef-表达式"></a> #ifdef 表达式</h3>
+<p>表达式必须是一个宏定义变量。例如：#define NUM<br />
+如果表达式是宏定义的时候，则执行程序代码块1，否则跳转到#else所包含的程序代码块2。如果没有#else，则直接跳转到#endif。</p>
+<h3 id="else-2"><a class="markdownIt-Anchor" href="#else-2"></a> #else</h3>
+<p>可以有，也可以省略。<br />
+若#else存在且#ifdef后的表达式不是宏定义时，执行程序代码块2。</p>
+<h3 id="endif-2"><a class="markdownIt-Anchor" href="#endif-2"></a> #endif</h3>
+<p>和#ifdef是配套使用的，不能省略。</p>
+<h3 id="ifdef-else-endif代码示例"><a class="markdownIt-Anchor" href="#ifdef-else-endif代码示例"></a> (#ifdef-#else-#endif)代码示例</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEBUG  <span class="comment">// 注释掉这一行可以看到不同的输出</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Debug mode is enabled.\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Debug mode is not enabled.\n&quot;</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的示例中，#ifdef DEBUG 检查是否定义了名为 DEBUG 的预处理宏。由于我们在代码中定义了 #define DEBUG，所以编译器会编译位于 #ifdef 和 #else 之间的代码块，输出 “Debug mode is enabled.”。如果注释掉 #define DEBUG 这一行，编译器将会编译 #else 后的代码块，输出 “Debug mode is not enabled.”。</p>
+<p>这个用法可以在编写调试相关代码时非常有用，可以根据是否启用了调试模式来选择性地输出调试信息。</p>
+<h2 id="ifndef语句的语法结构"><a class="markdownIt-Anchor" href="#ifndef语句的语法结构"></a> #ifndef语句的语法结构</h2>
+<p><strong>语法结构：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> 表达式</span></span><br><span class="line">    <span class="comment">// 程序代码块1</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="comment">// 程序代码块2</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>使用方法：</strong></p>
+<p>与#ifdef语句作用类似，也是对宏定义作用。区别是#ifndef后的表达式不是宏定义时，才执行程序代码块1，与#ifdef语句恰恰相反。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/19/2.1.2.5-C%E8%AF%AD%E8%A8%80include-sfr-sbit%E5%85%B3%E9%94%AE%E5%AD%97%E7%94%A8%E6%B3%95/">2.1.2.5-C语言#include-sfr-sbit关键字用法</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><h2 id="include关键字用法"><a class="markdownIt-Anchor" href="#include关键字用法"></a> include关键字用法</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span>            <span class="comment">// 包含一个源代码文件的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;文件名&gt;</span>   <span class="comment">// 如果需要包含标准库头文件或者实现版本所提供的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> “文件名”   <span class="comment">// 如果需要包含针对程序所开发的源文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> “myfile.h”</span></span><br></pre></td></tr></table></figure>
+<p>使用尖括号&lt; &gt;和双引号&quot; &quot;的区别在于头文件的搜索路径不同：</p>
+<blockquote>
+<p>使用尖括号&lt; &gt;，编译器会到系统路径下查找头文件；<br />
+使用双引号&quot; &quot;，编译器首先在当前目录下查找头文件，如果没有找到，再到系统路径下查找。</p>
+</blockquote>
+<p>系统路径：在开发软件的INC文件夹中<br />
+tip：双引号&quot; “比尖括号&lt; &gt;功能更加强大，可以导入工程中的其他函数，但是一般来讲我们会使用”&quot;引用自己的函数，而用&lt;&gt;引用官方库函数，提升代码可读性。</p>
+<h2 id="sfr关键字用法特殊功能寄存器sfr"><a class="markdownIt-Anchor" href="#sfr关键字用法特殊功能寄存器sfr"></a> sfr关键字用法（特殊功能寄存器sfr）</h2>
+<p>写程序的过程就是对特殊功能寄存器赋值，sfr 定义特殊功能寄存器中的字节。类似于C语言中的宏定义，对选定字节地址进行某特殊功能的命名。<br />
+sfr将单片机所有的字节寄存器的字节地址在头文件中定义了，一个地址表示了多个位，这将Keil与单片机的寄存器关联起来。<br />
+这一般是单片机厂商就已经编写好的，他们在.h中将硬件层的寄存器地址与寄存器缩写关联起来，便于进一步开发。</p>
+<p>格式为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sfr 功能命名 = 地址（位地址首位）</span><br></pre></td></tr></table></figure>
+<h2 id="sbit关键字用法"><a class="markdownIt-Anchor" href="#sbit关键字用法"></a> sbit关键字用法</h2>
+<p>sbit 用于特殊功能寄存器中可位寻址的位地址。类似于C语言中的宏定义，对选定位地址进行某特殊功能的命名。<br />
+一般也由单片机厂商在.h文件中编写好。</p>
+<p>格式为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbit 功能命名 = 位地址</span><br></pre></td></tr></table></figure>
+<p>sfr针对字节，sbit针对位，以下是官方.h文件节选，用于体会两者用法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内核特殊功能寄存器        // 复位值   描述</span></span><br><span class="line">sfr ACC         =   <span class="number">0xE0</span>;   <span class="comment">//0000,0000 累加器Accumulator</span></span><br><span class="line">sfr B           =   <span class="number">0xF0</span>;   <span class="comment">//0000,0000 B寄存器</span></span><br><span class="line">sfr PSW         =   <span class="number">0xD0</span>;   <span class="comment">//0000,0000 程序状态字</span></span><br><span class="line">sbit CY         =   PSW^<span class="number">7</span>;</span><br><span class="line">sbit AC         =   PSW^<span class="number">6</span>;</span><br><span class="line">sbit F0         =   PSW^<span class="number">5</span>;</span><br><span class="line">sbit RS1        =   PSW^<span class="number">4</span>;</span><br><span class="line">sbit RS0        =   PSW^<span class="number">3</span>;</span><br><span class="line">sbit OV         =   PSW^<span class="number">2</span>;</span><br><span class="line">sbit F1         =   PSW^<span class="number">1</span>;</span><br><span class="line">sbit P          =   PSW^<span class="number">0</span>;</span><br><span class="line">sfr SP          =   <span class="number">0x81</span>;   <span class="comment">//0000,0111 堆栈指针</span></span><br><span class="line">sfr DPL         =   <span class="number">0x82</span>;   <span class="comment">//0000,0000 数据指针低字节</span></span><br><span class="line">sfr DPH         =   <span class="number">0x83</span>;   <span class="comment">//0000,0000 数据指针高字节</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//I/O 口特殊功能寄存器</span></span><br><span class="line">sfr P0          =   <span class="number">0x80</span>;   <span class="comment">//1111,1111 端口0</span></span><br><span class="line">sbit P00        =   P0^<span class="number">0</span>;</span><br><span class="line">sbit P01        =   P0^<span class="number">1</span>;</span><br><span class="line">sbit P02        =   P0^<span class="number">2</span>;</span><br><span class="line">sbit P03        =   P0^<span class="number">3</span>;</span><br><span class="line">sbit P04        =   P0^<span class="number">4</span>;</span><br><span class="line">sbit P05        =   P0^<span class="number">5</span>;</span><br><span class="line">sbit P06        =   P0^<span class="number">6</span>;</span><br><span class="line">sbit P07        =   P0^<span class="number">7</span>;</span><br><span class="line">sfr P1          =   <span class="number">0x90</span>;   <span class="comment">//1111,1111 端口1</span></span><br><span class="line">sbit P10        =   P1^<span class="number">0</span>;</span><br><span class="line">sbit P11        =   P1^<span class="number">1</span>;</span><br><span class="line">sbit P12        =   P1^<span class="number">2</span>;</span><br><span class="line">sbit P13        =   P1^<span class="number">3</span>;</span><br><span class="line">sbit P14        =   P1^<span class="number">4</span>;</span><br><span class="line">sbit P15        =   P1^<span class="number">5</span>;</span><br><span class="line">sbit P16        =   P1^<span class="number">6</span>;</span><br><span class="line">sbit P17        =   P1^<span class="number">7</span>;</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/19/2.1.2.4-C%E8%AF%AD%E8%A8%80%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%B0%83%E7%94%A8/">2.1.2.4-C语言函数的定义及调用</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><h2 id="c语言函数的定义及调用"><a class="markdownIt-Anchor" href="#c语言函数的定义及调用"></a> C语言函数的定义及调用</h2>
+<p>函数语法结构：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回参数变量类型 函数名（参数声明）</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回参数变量类型：char/unsigned char/int/unsigned int/float/double/…<br />
+定义主函数不要使用void，要用int，最后加上return 0。<br />
+函数名：英文字母或者下划线开头，可由英文字母、下划线和数字组成。<br />
+参数声明：可以说多个参数，也可以是无参数（void）</p>
+<p>例1：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Delay_1ms</span><span class="params">(<span class="type">void</span>)</span>    <span class="comment">// 简单的延时函数，但因为没有指定单片机型号，所以i的大小并不准确</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">    i = <span class="number">1000</span>;</span><br><span class="line">    <span class="keyword">while</span>(i--);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例2：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">readkey</span><span class="params">(<span class="type">void</span>)</span>   <span class="comment">// int函数示例</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> KeyValue;</span><br><span class="line">    <span class="keyword">return</span> KeyValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例3：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Delay_ms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> sec)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;sec;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Delay_1ms();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例4：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> <span class="title function_">DelaySec</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> sec)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> a;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;sec;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Delay_1ms();</span><br><span class="line">    &#125;</span><br><span class="line">    a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/19/2.1.2.3-C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%B8%B8%E8%A7%81%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%94%A8%E6%B3%95%E4%BB%A5%E5%8F%8A%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%9A%84%E7%BB%98%E5%88%B6/">2.1.2.3-C语言中常见语句的用法以及流程图的绘制</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><h2 id="常见语句的用法"><a class="markdownIt-Anchor" href="#常见语句的用法"></a> 常见语句的用法</h2>
+<h3 id="c语言if语句格式用法"><a class="markdownIt-Anchor" href="#c语言if语句格式用法"></a> C语言if语句格式用法</h3>
+<p><strong>例1：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 语句1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>条件表达式成立      -&gt;  为真 1  -&gt;  可运行语句1<br />
+条件表达式不成立    -&gt;  为假 0  -&gt;  不能运行语句1</p>
+<p><strong>例2：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(条件表达式)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 语句1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 语句2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>应用实例：实现门磁开门检测</p>
+<h3 id="c语言while语句用法"><a class="markdownIt-Anchor" href="#c语言while语句用法"></a> C语言while语句用法</h3>
+<h4 id="while语句格式1先判断再执行"><a class="markdownIt-Anchor" href="#while语句格式1先判断再执行"></a> while语句格式1（先判断再执行）</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>（表达式）</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 语句1</span></span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+<p>基本规则:   表达式如果成立    -&gt;  为真 1  -&gt;  执行语句1。</p>
+<p>通常用法:   表达式如果成立    -&gt;  为真 1  -&gt;  一直循环：while（1）<br />
+用于单片机的任务轮询，在语句1中加入需要调用的任务列表（即任务函数），那么单片机就会轮流运行任务。</p>
+<h4 id="while语句格式2先执行再判断"><a class="markdownIt-Anchor" href="#while语句格式2先执行再判断"></a> while语句格式2（先执行再判断）</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 语句1</span></span><br><span class="line">&#125;<span class="keyword">while</span>（表达式）</span><br></pre></td></tr></table></figure>
+<p><strong>运行规则：</strong></p>
+<ol>
+<li>先执行 语句1；</li>
+<li>再去判断表达式是否成立，如果成立，继续执行语句1；否则跳出 while 语句，继续执行下面的语句。</li>
+</ol>
+<h3 id="c语言switch语句用法"><a class="markdownIt-Anchor" href="#c语言switch语句用法"></a> C语言switch语句用法</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(变量表达式)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">1</span>：</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//语句1；</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">break</span>；</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> 常量<span class="number">2</span>：</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 语句2；</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">break</span>；</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>：</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 语句n；  //一般为错误提示语，变量不等于以上列出的所有常量。</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">break</span>；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变量t：必须为一个变量。<br />
+当switch后的变量与case后的变量相等，则运行对应的代码。</p>
+<h3 id="c语言for语句用法"><a class="markdownIt-Anchor" href="#c语言for语句用法"></a> C语言for语句用法</h3>
+<p><strong>语法结构：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(表达式<span class="number">1</span>;表达式<span class="number">2</span>;表达式<span class="number">3</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 中间循环体；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>表达式序号</th>
+<th>表达式类型</th>
+<th>运行方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表达式1</td>
+<td>单次表达式</td>
+<td>for循环开始前运行一次(赋予变量初值)</td>
+</tr>
+<tr>
+<td>表达式2</td>
+<td>条件表达式(*)</td>
+<td>如果该语句（判断语句）为真，则执行表达式3</td>
+</tr>
+<tr>
+<td>表达式3</td>
+<td>末尾循环体</td>
+<td>（多半为i<ins>或者</ins>i）如果表达式3中为i++，则先执行中间循环体再自增；反之则反之</td>
+</tr>
+</tbody>
+</table>
+<p><strong>以一个简单的延时函数为例：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delay_1s</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt; <span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        delay_100ms();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="c语言break-continue-goto语句用法"><a class="markdownIt-Anchor" href="#c语言break-continue-goto语句用法"></a> C语言break、continue、goto语句用法</h3>
+<p>break；语句用于do while、for、while循环语句中时，可使程序终止循环，跳出循环（永久终止循环）<br />
+continue：语句用于do while、for、while循环语句中时，可停止本次循环，不跳出循环语句，重新开始新的循环（终止本次循环）</p>
+<p>goto(一般不使用，会使流程图极其复杂)：又叫做无条件转移语句，在程序中加入一个标签，然后goto 标签，程序运行到此条之后跳转到标签所在位置。既可以向前跳转，又可以向后跳转。</p>
+<h2 id="流程图的绘制"><a class="markdownIt-Anchor" href="#流程图的绘制"></a> 流程图的绘制</h2>
+<h3 id="结构化流程图"><a class="markdownIt-Anchor" href="#结构化流程图"></a> 结构化流程图</h3>
+<p>C语音中有三种基本结构：顺序、选择、循环（禁止使用goto，goto会使后期维护成本大幅度增加）</p>
+<p>如果希望用流程图描绘C语音程序，流程图必须由这三种基本结构构成，称为结构化流程图。结构化流程图有以下4个优越之处：<br />
+1.只有一个入口。<br />
+2.只有一个出口。<br />
+3.结构内的每一部分都有机会被执行到。<br />
+4.结构内不存在死循环。</p>
+<p><img src="/img/2.4/%E7%BB%93%E6%9E%84%E5%8C%96%E6%B5%81%E7%A8%8B%E5%9B%BE%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.webp" alt="结构化流程图的三种基本结构" /></p>
+<h3 id="n-s流程图不常用"><a class="markdownIt-Anchor" href="#n-s流程图不常用"></a> N-S流程图（不常用）</h3>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/360921957">N-S图（盒图）详解（附案例）</a></p>
+<h3 id="伪代码"><a class="markdownIt-Anchor" href="#伪代码"></a> 伪代码</h3>
+<p>伪代码利用介于自然语言和计算机语音之间的文字符号来描述算法，每一行或者几行表示一个基本操作，易于阅读，结构紧凑，修改方便，便于向算法程序过渡。因此伪代码用得比流程图要多。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/18/2.1.2.2-C%E8%AF%AD%E8%A8%80%E4%B8%AD%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BA%94%E7%94%A8/">2.1.2.2-C语言中运算符的定义与应用</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><h2 id="c语言算数运算符"><a class="markdownIt-Anchor" href="#c语言算数运算符"></a> C语言算数运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法运算符</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法运算符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法运算符</td>
+</tr>
+<tr>
+<td>/</td>
+<td>除法运算符</td>
+</tr>
+<tr>
+<td>%</td>
+<td>求余运算符</td>
+</tr>
+<tr>
+<td>++</td>
+<td>自增运算符</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减运算符</td>
+</tr>
+</tbody>
+</table>
+<p>a<ins>和</ins>a的不同：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a++是先参与运算再自增，++a反之。</span><br></pre></td></tr></table></figure>
+<h2 id="c语言关系运算符"><a class="markdownIt-Anchor" href="#c语言关系运算符"></a> C语言关系运算符</h2>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+<td>常见错误：=&gt;</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+<td>常见错误：=&lt;</td>
+</tr>
+<tr>
+<td>==</td>
+<td>等于</td>
+<td></td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>特别说明：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">=   表示的是赋值</span><br><span class="line">==  判断功能</span><br></pre></td></tr></table></figure>
+<h3 id="关系运算符的使用"><a class="markdownIt-Anchor" href="#关系运算符的使用"></a> 关系运算符的使用</h3>
+<p>在关系运算中，0为假，其他数字都为真。</p>
+<h4 id="一般情况下配合if语句使用"><a class="markdownIt-Anchor" href="#一般情况下配合if语句使用"></a> 一般情况下配合if语句使用</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(关系运算符的表达式)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//语句1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果关系运算符为真  则执行语句1</p>
+<p>关系运算符的表达式成立  -&gt;  运算结果为真    -&gt;  返回1   -&gt;  执行语句1<br />
+关系运算符的表达式不成立    -&gt;  运算结果为假  -&gt;  返回0 -&gt;  不执行语句1</p>
+<h4 id="有时也在while语句中使用"><a class="markdownIt-Anchor" href="#有时也在while语句中使用"></a> 有时也在while语句中使用</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(关系运算符表达式)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//语句1；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果关系运算符为真  则执行语句1</p>
+<p>关系运算符表达式成立  -&gt;  运算结果为真  -&gt;  返回1  -&gt;  执行语句1<br />
+关系运算符表达式不成立  -&gt;  运算结果为假  -&gt;  返回0  -&gt;  不执行语句1</p>
+<h2 id="c语言位运算符"><a class="markdownIt-Anchor" href="#c语言位运算符"></a> C语言位运算符</h2>
+<h3 id="c语言中六种位运算符"><a class="markdownIt-Anchor" href="#c语言中六种位运算符"></a> C语言中六种位运算符</h3>
+<h4 id="按位与0对输出有影响直接置0"><a class="markdownIt-Anchor" href="#按位与0对输出有影响直接置0"></a> ‘&amp;’  按位与（0对输出有影响，直接置0）</h4>
+<p>运算规则：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a&amp;b = <span class="number">1</span> &amp; <span class="number">1</span> = <span class="number">1</span>;</span><br><span class="line">a&amp;b = <span class="number">0</span> &amp; <span class="number">1</span> = <span class="number">0</span>;</span><br><span class="line">a&amp;b = <span class="number">1</span> &amp; <span class="number">0</span> = <span class="number">0</span>;</span><br><span class="line">a&amp;b = <span class="number">0</span> &amp; <span class="number">0</span> = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a &amp; b = <span class="number">0000</span> <span class="number">0110</span> &amp; <span class="number">0000</span> <span class="number">0101</span> = </span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">————————</span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">即  a &amp; b = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="按位或1对输出有影响直接置1"><a class="markdownIt-Anchor" href="#按位或1对输出有影响直接置1"></a> ‘|’    按位或（1对输出有影响，直接置1）</h4>
+<p>运算规则：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a | b = <span class="number">1</span> | <span class="number">1</span> = <span class="number">1</span>;</span><br><span class="line">a | b = <span class="number">0</span> | <span class="number">1</span> = <span class="number">1</span>;</span><br><span class="line">a | b = <span class="number">1</span> | <span class="number">0</span> = <span class="number">1</span>;</span><br><span class="line">a | b = <span class="number">0</span> | <span class="number">0</span> = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a | b = <span class="number">0000</span> <span class="number">0110</span> | <span class="number">0000</span> <span class="number">0101</span></span><br><span class="line"><span class="number">0000</span> <span class="number">0110</span></span><br><span class="line"><span class="number">0000</span> <span class="number">0101</span></span><br><span class="line">——————————</span><br><span class="line"><span class="number">0000</span> <span class="number">0</span> <span class="number">111</span> = <span class="number">7</span></span><br><span class="line"></span><br><span class="line">即  a | b = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="按位异或相当于不带进位的二进制加法"><a class="markdownIt-Anchor" href="#按位异或相当于不带进位的二进制加法"></a> ‘^’    按位异或（相当于不带进位的二进制加法）</h4>
+<p>运算规则：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（a、b不同时为<span class="number">1</span>，相同时为<span class="number">0</span>）</span><br><span class="line">a ^ b = <span class="number">1</span> ^ <span class="number">1</span> = <span class="number">0</span>;</span><br><span class="line">a ^ b = <span class="number">0</span> ^ <span class="number">1</span> = <span class="number">1</span>;</span><br><span class="line">a ^ b = <span class="number">1</span> ^ <span class="number">0</span> = <span class="number">1</span>;</span><br><span class="line">a ^ b = <span class="number">0</span> ^ <span class="number">0</span> = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a ^b = <span class="number">0000</span> <span class="number">0110</span> | <span class="number">0000</span> <span class="number">0101</span></span><br><span class="line"><span class="number">0000</span> <span class="number">0110</span></span><br><span class="line"><span class="number">0000</span> <span class="number">0101</span></span><br><span class="line">——————————</span><br><span class="line"><span class="number">0000</span> <span class="number">0011</span> = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">即  a ^b = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="~-取反"><a class="markdownIt-Anchor" href="#~-取反"></a> ‘~’    取反</h4>
+<p>规则：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">0</span>   ~a = <span class="number">1</span>;</span><br><span class="line">a = <span class="number">1</span>   ~a = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = 6 = b0000 0110</span><br><span class="line">~a = 1111 1001 = 249</span><br><span class="line">249  =255 = FF = 1111 1111</span><br></pre></td></tr></table></figure>
+<h4 id="左移"><a class="markdownIt-Anchor" href="#左移"></a> ‘&lt;&lt;’   左移</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a;</span><br><span class="line">a = <span class="number">6</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b;</span><br><span class="line">b = a &lt;&lt; <span class="number">1</span>; <span class="comment">//b为a二进制数左移一位，相当于乘以2</span></span><br></pre></td></tr></table></figure>
+<p>b = a &lt;&lt; 1 = 0x0c = 12;</p>
+<h4 id="右移"><a class="markdownIt-Anchor" href="#右移"></a> ‘&gt;&gt;’   右移</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> a;</span><br><span class="line">a= <span class="number">6</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> b;</span><br><span class="line">b = a&gt;&gt;<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>a = 0000 0110 = 6;<br />
+由于 0000 0011 = 3;<br />
+则 b = a&gt;&gt;1 = 3;</p>
+<p>对于b = a&gt;&gt; 2<br />
+有0000 0001 = 1;</p>
+<p>Ps：无论是左移还是右移，溢出的一位舍去，是否溢出要看变量的类型，因为变量的类型决定着变量有多少位。</p>
+<h3 id="位运算符的运用"><a class="markdownIt-Anchor" href="#位运算符的运用"></a> 位运算符的运用</h3>
+<p>以下代码块利用上面的位运算符达到控制任务顺序的目的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dat = <span class="number">0xAA</span>; <span class="comment">//b1010 1010;</span></span><br><span class="line"><span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">8</span>; j++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (dat &amp; <span class="number">0x80</span>)    <span class="comment">//(dat)1010 1010   &amp;   b1000 0000(0x80)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//第1,3,5,7个循环触发，if内结果为1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//第2,4,6,8个循环触发，if内结果为0</span></span><br><span class="line">    &#125;</span><br><span class="line">    dat &lt;&lt;= <span class="number">1</span>;	<span class="comment">//dat左移一位</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1010 1010 &lt;&lt; 1<br />
+得到0101,0100</p>
+<h2 id="c语言逻辑运算符"><a class="markdownIt-Anchor" href="#c语言逻辑运算符"></a> C语言逻辑运算符</h2>
+<h3 id="与运算"><a class="markdownIt-Anchor" href="#与运算"></a> ‘&amp;&amp;’  与运算</h3>
+<p>常见应用场景：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(表达式<span class="number">1</span> &amp;&amp; 表达式<span class="number">2</span>  &amp;&amp; 表达式<span class="number">3</span> ...)</span><br><span class="line">&#123;</span><br><span class="line">    语句<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只有当表达式1、表达式2、表达式3都为真的时候（都成立时），执行语句1；否则不执行语句1。</p>
+<h3 id="或运算"><a class="markdownIt-Anchor" href="#或运算"></a> ‘||’    或运算</h3>
+<p>常见应用场景：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(表达式<span class="number">1</span> || 表达式<span class="number">2</span> || 表达式<span class="number">3</span> ...)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 语句1；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当表达式1，表达式2和表达式3至少有1个为真时，执行语句1。</p>
+<h3 id="非运算"><a class="markdownIt-Anchor" href="#非运算"></a> ‘!’ 非运算</h3>
+<p>例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> a;</span><br><span class="line">a = <span class="number">0</span>;  <span class="comment">// !a 为 1</span></span><br><span class="line">a = <span class="number">1</span>;  <span class="comment">// !a 为 0</span></span><br></pre></td></tr></table></figure>
+<p>常见应用场景：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!变量a)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 表达式1；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>当变量a为0时，!a 为真  执行表达式1</li>
+<li>当变量a非0时，!a 为假  不执行表达式1；</li>
+</ol>
+<h2 id="c语言赋值运算符"><a class="markdownIt-Anchor" href="#c语言赋值运算符"></a> C语言赋值运算符</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a += b;     <span class="comment">// 等价于   a = a+b;</span></span><br><span class="line">a -= b;     <span class="comment">// 等价于   a = a-b;</span></span><br><span class="line">a *= b;     <span class="comment">// 等价于   a = a*b;</span></span><br><span class="line">a /= b;     <span class="comment">// 等价于   a = a/b;</span></span><br><span class="line">a %= b;     <span class="comment">// 等价于   a = a%b;</span></span><br><span class="line">a &lt;&lt;= <span class="number">1</span>;    <span class="comment">// 等价于   a = a&lt;&lt;1;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/258.html"><strong>赋值运算符及赋值表达式，C语言赋值运算符及其赋值表达式详解</strong></a></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/18/2.1.2.1-C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BA%94%E7%94%A8/">2.1.2.1-C语言中变量的定义与应用</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2.C语言基本语法</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a></span><div class="content"><h2 id="变量的概念"><a class="markdownIt-Anchor" href="#变量的概念"></a> 变量的概念</h2>
+<p>变量(官方定义)：是用来存储单片机/计算机系统中 计算的过程或结果数值的一个抽象概念<br />
+变量：就是一种在程序执行过程中其值不断变化的量。<br />
+常量：就是其定义之后数值不会变化的量</p>
+<h2 id="变量的数据类型"><a class="markdownIt-Anchor" href="#变量的数据类型"></a> 变量的数据类型</h2>
+<p><img src="/img/2.2/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%B1%87%E6%80%BB.webp" alt="数据类型汇总" /></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>适用范围</th>
+<th>定义方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>布尔型</td>
+<td>（bool）1-真 0-假</td>
+<td>常用bit ,用bool和bit都能定义。</td>
+</tr>
+<tr>
+<td>字符型</td>
+<td>1byte，8个bit</td>
+<td>char</td>
+</tr>
+<tr>
+<td>整数型</td>
+<td>整数型与字符型存储的数据长度不一样</td>
+<td>int、short、long</td>
+</tr>
+<tr>
+<td>浮点型</td>
+<td>小数</td>
+<td>float、double</td>
+</tr>
+</tbody>
+</table>
+<p>不同单片机中不同的数据类型所对应的位数也有所不同。<br />
+在stm32中，short为16bit，int和long为32bit。<br />
+对于有符号的数据类型，最高位表示正负，1为负，0为正。</p>
+<p>单片机变量定义及其范围：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>关键字</th>
+<th>所占位数</th>
+<th>表示数的范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无符号字符型</td>
+<td>unsigned char</td>
+<td>8</td>
+<td>0 ~ 255</td>
+</tr>
+<tr>
+<td>有符号字符型</td>
+<td>char</td>
+<td>8</td>
+<td>-128 ~ 127</td>
+</tr>
+<tr>
+<td>无符号整型</td>
+<td>unsigned int</td>
+<td>16</td>
+<td>0 ~ 65535</td>
+</tr>
+<tr>
+<td>有符号整型</td>
+<td>int</td>
+<td>16</td>
+<td>-32768 ~ 32767</td>
+</tr>
+<tr>
+<td>无符号长整型</td>
+<td>unsigned long</td>
+<td>32</td>
+<td>0 ~ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>32</mn></msup></mrow><annotation encoding="application/x-tex">2^{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>-1</td>
+</tr>
+<tr>
+<td>有符号长整型</td>
+<td>long</td>
+<td>32</td>
+<td>-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup></mrow><annotation encoding="application/x-tex">2^{31}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span> ~ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup></mrow><annotation encoding="application/x-tex">2^{31}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>-1</td>
+</tr>
+<tr>
+<td>单精度实型</td>
+<td>float</td>
+<td>32</td>
+<td>3.4e-38 ~ 3.4e38</td>
+</tr>
+<tr>
+<td>双精度实型</td>
+<td>double</td>
+<td>64</td>
+<td>1.7e-308 ~ 1.7e308</td>
+</tr>
+<tr>
+<td>位类型</td>
+<td>bit</td>
+<td>1</td>
+<td>0 ~ 1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="定义变量的规则"><a class="markdownIt-Anchor" href="#定义变量的规则"></a> 定义变量的规则</h2>
+<p>1、变量是由 <strong>英文字母（大小写）、数字、下划线</strong> 组成；<br />
+2、变量名以 <strong>英文字母或下划线</strong> 开头；<br />
+3、变量名中的字母是区分大小写的；<br />
+4、变量名不能是关键字；<br />
+5、变量名中不能包含空格、标点符号和类型说明符（可包含下划线）。</p>
+<p>C语言中的关键字：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto、break、case、char、const、continue、default、do、double、else、enum、extern、float、for、goto、if、int、long、register等等</span><br></pre></td></tr></table></figure>
+<p>全局变量和局部变量的区别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">全局变量：在函数外</span><br><span class="line">局部变量：在函数内</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/18/2.1.1.1-%E5%8D%95%E7%89%87%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%90%86%E8%A7%A3/">2.1.1.1-单片机基本理解</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-1-%E4%BA%86%E8%A7%A3%E5%8D%95%E7%89%87%E6%9C%BA/">2.1.1.了解单片机</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></span><div class="content"><p>很长一段时间以来在word上记了一些笔记，但却一直没能回头复习。再三斟酌，决定将笔记以博客的形式写出来，并借此机会对所学内容进行一次复习，我想应该不用太多时间就能搬运完。</p>
+<p>C语言基础将从单片机开始写，直接学习C语言未免过于乏味，但如果通过C语言在单片机上的应用来间接学习C语言，就能让理论与实际充分结合，达到事半功倍的效果。</p>
+<h2 id="单片机可以做什么"><a class="markdownIt-Anchor" href="#单片机可以做什么"></a> 单片机可以做什么</h2>
+<p>单片机：CPU、存储器、IO接口、定时器集成到一个硅片上，具有小而完整的微型计算机系统。<br />
+单片机使用灵活，经过二次硬件和软件开发，实现不同功能，满足不同需求。<br />
+硬件工程师：根据单片机资源设计硬件电路、原理图设计、PCB绘制、硬件功能调试。<br />
+软件工程师：单片机C语言基础、程序开发环境、程序的烧录、软件功能调试与测试。</p>
+<h2 id="单片机资源有哪些"><a class="markdownIt-Anchor" href="#单片机资源有哪些"></a> 单片机资源有哪些</h2>
+<p>STC15W104接口资源介绍：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>资源数量或大小</th>
+<th>资源作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工作电压</td>
+<td>2.4-5.5V</td>
+<td></td>
+</tr>
+<tr>
+<td>程序空间（FLASH ROM）</td>
+<td>4K=4096bytes</td>
+<td>用于存储单片机代码(code)</td>
+</tr>
+<tr>
+<td>SRAM</td>
+<td>128bytes</td>
+<td>用来存储单片机代码中的变量（变量的定义不能大于128字节）</td>
+</tr>
+<tr>
+<td>EEPROM</td>
+<td>1K</td>
+<td>具有掉电保存功能</td>
+</tr>
+<tr>
+<td>IO</td>
+<td>6个，P3.0-P3.5</td>
+<td>单片机的输入输出端口。对于AT89C52芯片，P0.0-P0.7、P1.0-P1.7、P2、P3</td>
+</tr>
+<tr>
+<td>定时器</td>
+<td>2个</td>
+<td>精准定时。电子时钟-&gt;定时器。</td>
+</tr>
+<tr>
+<td>串口</td>
+<td></td>
+<td>串口是单片机与外部设备通讯的重要接口。芯片与芯片之间通讯。例WIFI/蓝牙/4G</td>
+</tr>
+<tr>
+<td>ADC</td>
+<td></td>
+<td>稍高端的单片机集成。模拟的实际电压转成数字信号。普通IO接口只识别高低电平，有ADC的IO可识别模拟电压。</td>
+</tr>
+<tr>
+<td>DAC</td>
+<td></td>
+<td>通过端口输出一个模拟电压。普通IO只输出高低电平，DAC可输出一个模拟电压（0-VCC）的一个任意电压。</td>
+</tr>
+<tr>
+<td>SPI/IIC（串行协议）</td>
+<td></td>
+<td>都是标准通讯接口。一般用于实现芯片之间通讯。<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenpuo/article/details/81023882"><strong>I2C和SPI总线对比</strong></a></td>
+</tr>
+<tr>
+<td>看门狗</td>
+<td></td>
+<td>用来防止代码程序死机与非正常运行。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="进制的介绍与转换"><a class="markdownIt-Anchor" href="#进制的介绍与转换"></a> 进制的介绍与转换</h2>
+<p>最小储存单元为bit（比特），存0和1<br />
+8个储存元组成1Byte（字节）</p>
+<p>二进制：单片机单个IO的配置，使用少，一般用16进制表示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示方法：b00100011</span><br></pre></td></tr></table></figure>
+<p>十进制：一般使用于单片机算术计算，逻辑计算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示方法：35</span><br></pre></td></tr></table></figure>
+<p>十六进制：寄存器配置、运算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示方法：0x23</span><br></pre></td></tr></table></figure>
+<h2 id="c51点亮第一个led灯"><a class="markdownIt-Anchor" href="#c51点亮第一个led灯"></a> C51点亮第一个LED灯</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">任务: 点亮无线门磁探测器的LED1 LED2 </span><br><span class="line">准备：无线门磁探测器、烧录器、数字电源一台、电脑1台（安装KEIL C51）</span><br><span class="line">原理：C语言源程序-&gt;C编译器-&gt;汇编代码-&gt;汇编器-&gt;机器代码(.hex  .bin)</span><br></pre></td></tr></table></figure>
+<p>点亮LED灯有以下步骤</p>
+<blockquote>
+<blockquote>
+<p>STC15W104 工程新建<br />
+STC15W104 生成烧录文件<br />
+HEX为单片机可识别的文件</p>
+</blockquote>
+<blockquote>
+<p>STC15W104 单片机烧录方法<br />
+冷启动烧录：先下载程序再供电<br />
+热启动烧录：供电情况下烧录程序</p>
+</blockquote>
+<blockquote>
+<p>点亮LED灯</p>
+</blockquote>
+</blockquote>
+<p>单片机的高低电平：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">低电平：GND    # 低压0V</span><br><span class="line">高电平：VCC    # 单片机的供电电压</span><br></pre></td></tr></table></figure>
+<p>单片机的普通IO口只能输出高电平或者低电平：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IO=0 则单片机的IO口输出低电平   0V</span><br><span class="line">IO=1 则单片机的IO口输出高电平   VCC</span><br></pre></td></tr></table></figure>
+<p>具体操作步骤：</p>
+<ol>
+<li>安装烧录接口驱动</li>
+<li>在STC-ISP的“keil仿真设置”中点击“添加型号和头文件到keil中”，选择keil_C51所在文件夹</li>
+<li>在keil中新建new project，设置项目文件夹与项目文件名，选择项目用到的芯片，建立项目</li>
+<li>创建主函数文件main.c，并将之加入到project中，再继续编写main.c文件，添加头文件，将头文件修改成使用的型号，型号在keil目录中的INC文件夹中可以找到。</li>
+<li>编写好主函数之后，点击option for taget，选择output选项卡，点击编译，生成HEX文件。</li>
+<li>然后回到STC-ISP中，选择芯片，选择烧录器的串口，选择工作晶振频率5.5296Mhz，导入程序文件，连接烧录器和无线门磁探测器，再冷启动烧录。</li>
+</ol>
+<p>关于延时函数：<em>nop</em>()函数存在于头文件#include &quot;intrins.h&quot;中，表示一个机械周期，一个机械周期包含12个时钟周期，一个时钟周期的时长为晶振频率的倒数。1个机械周期 = 12个时钟周期 = 12 * (1/f)。（f 为晶振频率）</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/18/1.4-%E4%B8%BAMelody%E4%B8%BB%E9%A2%98%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0gitalk%E8%AF%84%E8%AE%BA%E5%8C%BA/">1.4-为Melody主题的HEXO博客添加gitalk评论区</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/1-HEXO/">1.HEXO</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/HEXO/">HEXO</a></span><div class="content"><p>担心博客有错误无法及时改正，所以在博客中加入评论区，gitalk评论区模块好处非常多，首先当然是免费，其次必须登录GitHub账号才能评论，有一定防灌水的作用。本人使用的HEXO主题是<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><strong>hexo-theme-melody</strong></a>，这个主题自带功能比较多，界面也比较简洁，也集成了gitalk模块，用户只需要注册应用并编辑配置文件即可加入gitalk模块</p>
+<h2 id="创建存放评论的仓库"><a class="markdownIt-Anchor" href="#创建存放评论的仓库"></a> 创建存放评论的仓库</h2>
+<p>gitalk的原理是将博客中的评论存放在github仓库的issues中。<br />
+最好不要用自己的主页仓库(<a target="_blank" rel="noopener" href="http://xn--xxx-4l3e.github.io">即xxx.github.io</a>)作为存放评论的仓库，后续可能会出现一些问题，所以专门创建一个public仓库来存放评论。</p>
+<p><img src="/img/1.4/create-github-public-repo.png" alt="create-github-public-repo.png" /></p>
+<h2 id="创建github-oauth-application"><a class="markdownIt-Anchor" href="#创建github-oauth-application"></a> 创建github OAuth application</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">应用快捷注册地址</a></p>
+<p>按照下图中填写<br />
+<img src="/img/1.4/register-github-OAuth-app.png" alt="register-github-OAuth-app.png" /></p>
+<p>点击绿色的注册按钮，在新页面中点击&quot;Generate a new client secret&quot;，生成客户端密码，然后记录下&quot;Client ID&quot;和&quot;Client secrets&quot;，等会儿要填到hexo-theme-melody的配置文件&quot;_config.melody.yml&quot;中</p>
+<h2 id="编辑_configmelodyyml并部署"><a class="markdownIt-Anchor" href="#编辑_configmelodyyml并部署"></a> 编辑&quot;_config.melody.yml&quot;并部署</h2>
+<p>按照下图编辑好配置文件<br />
+<img src="/img/1.4/gitalk_config.melody.yml.png" alt="gitalk_config.melody.yml.png" /></p>
+<p>然后就是喜闻乐见的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>部署成功！</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/18/1.3-%E4%B8%BAHEXO%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E7%B1%BB%E5%88%AB%E5%92%8C%E6%A0%87%E7%AD%BE/">1.3-为HEXO博客添加类别和标签</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/1-HEXO/">1.HEXO</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/HEXO/">HEXO</a></span><div class="content"><h2 id="blog添加分类categories和标签tags-文章内容来源"><a class="markdownIt-Anchor" href="#blog添加分类categories和标签tags-文章内容来源"></a> Blog添加分类(categories)和标签(tags) <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50787870"><strong>文章内容来源</strong></a></h2>
+<h3 id="创建分类选项"><a class="markdownIt-Anchor" href="#创建分类选项"></a> 创建“分类”选项</h3>
+<h4 id="生成分类页并添加tpye属性"><a class="markdownIt-Anchor" href="#生成分类页并添加tpye属性"></a> 生成“分类”页并添加tpye属性</h4>
+<p>打开命令行，进入博客所在文件夹。执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>成功后会提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/source/categories/index.md</span><br></pre></td></tr></table></figure>
+<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章分类</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-10-31 13:47:40</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>添加type: &quot;categories&quot;到内容中，添加后是这样的：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章分类</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-10-31 13:47:40</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件。</p>
+<h4 id="给文章添加categories属性"><a class="markdownIt-Anchor" href="#给文章添加categories属性"></a> 给文章添加“categories”属性</h4>
+<p>打开需要添加分类的文章，为其添加categories属性。下方的categories: web前端表示添加这篇文章到“web前端”这个分类。注意：hexo一篇文章只能属于一个分类，也就是说如果在“- web前端”下方添加“-xxx”，hexo不会产生两个分类，而是把分类嵌套（即该文章属于 “- web前端”下的 “-xxx ”分类）。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo博客+Github博客教程：03添加分类，标签</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-11-01 14:17:46</span></span><br><span class="line"><span class="attr">categories:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>至此，成功给文章添加分类，点击首页的“分类”可以看到该分类下的所有文章。当然，只有添加了categories: xxx的文章才会被收录到首页的“分类”中。</p>
+<h3 id="创建标签选项"><a class="markdownIt-Anchor" href="#创建标签选项"></a> 创建“标签”选项</h3>
+<h4 id="生成标签页并添加tpye属性"><a class="markdownIt-Anchor" href="#生成标签页并添加tpye属性"></a> 生成“标签”页并添加tpye属性</h4>
+<p>打开命令行，进入博客所在文件夹。执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>成功后会提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: ~/Documents/blog/source/tags/index.md</span><br></pre></td></tr></table></figure>
+<p>根据上面的路径，找到index.md这个文件，打开后默认内容是这样的：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标签</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-10-31 13:47:40</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>添加type: &quot;tags&quot;到内容中，添加后是这样的：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章分类</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-10-31 13:47:40</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;tags&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>保存并关闭文件。</p>
+<h4 id="给文章添加tags属性"><a class="markdownIt-Anchor" href="#给文章添加tags属性"></a> 给文章添加“tags”属性</h4>
+<p>打开需要添加标签的文章，为其添加tags属性。<br />
+下方的tags:下方的- jQuery - 表格 - 表单验证<br />
+就是这篇文章的标签</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo博客+Github博客教程：03添加分类，标签</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-11-01 14:17:46</span></span><br><span class="line"><span class="attr">categories:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">基础知识</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">github</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">博客</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>至此，成功给文章添加分类，点击首页的“标签”可以看到该标签下的所有文章。当然，只有添加了tags: xxx的文章才会被收录到首页的“标签”中。</p>
+<h3 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h3>
+<p>由此可见，目录和标签的设置思路几乎一模一样。<br />
+scaffolds目录下，是新建页面的模板，执行新建命令时，是根据这里的模板页来完成的，所以可以在这里根据你自己的需求添加一些默认值。我们可以打开scaffolds/post.md文件，在tages:上面加入categories:,保存后，之后执行&quot;hexo new 文章名&quot;命令生成的文件，.md文件顶部就有&quot;categories:&quot;项（当然我个人更倾向于直接在/sourse/_posts中创建文件，这样似乎更加方便）。</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2023/08/17/1.2-HEXO%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">1.2-HEXO常用命令</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-17</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/1-HEXO/">1.HEXO</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/HEXO/">HEXO</a></span><div class="content"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hexo serve</td>
+<td>在本机4000端口上运行博客web服务</td>
+<td>测试用</td>
+</tr>
+<tr>
+<td>hexo clean</td>
+<td>清除本地缓存</td>
+<td>推送到远程仓库前清理缓存</td>
+</tr>
+<tr>
+<td>hexo g</td>
+<td>生成本地静态网页</td>
+<td></td>
+</tr>
+<tr>
+<td>algolia</td>
+<td>调用api生成 algolia 索引</td>
+<td></td>
+</tr>
+<tr>
+<td>hexo d</td>
+<td>推送更改到远程地址</td>
+<td></td>
+</tr>
+<tr>
+<td>hexo new page categories</td>
+<td>创建新类别</td>
+<td>每篇文章只能处于一个类别中或者一个类别的子类别中</td>
+</tr>
+<tr>
+<td>hexo new page tags</td>
+<td>创建新标签</td>
+<td>每篇文章可以有多个标签</td>
+</tr>
+</tbody>
+</table>
+</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(/img/top_img.webp)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2023 By MagicConch</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/algolia.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

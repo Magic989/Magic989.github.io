@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="2.1.1.1-单片机基本理解"><meta name="keywords" content="嵌入式,单片机"><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><title>2.1.1.1-单片机基本理解 | MagicConch's Blog</title><link rel="shortcut icon" href="/conch_128.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"C0EZAB28OP","apiKey":"41a49d206f0aa547441f944ea14ee883","indexName":"MagicConch","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.3.0'
+} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MagicConch's Blog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%89%87%E6%9C%BA%E5%8F%AF%E4%BB%A5%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text"> 单片机可以做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%89%87%E6%9C%BA%E8%B5%84%E6%BA%90%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">2.</span> <span class="toc-text"> 单片机资源有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%88%B6%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text"> 进制的介绍与转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c51%E7%82%B9%E4%BA%AE%E7%AC%AC%E4%B8%80%E4%B8%AAled%E7%81%AF"><span class="toc-number">4.</span> <span class="toc-text"> C51点亮第一个LED灯</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">MagicConch</div><div class="author-info__description text-center">一个嵌入式萌新，在这里记录学习历程</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">4</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">5</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/top_img.webp)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">MagicConch's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">2.1.1.1-单片机基本理解</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-18</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2.嵌入式</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1.C语言基础</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-1-%E4%BA%86%E8%A7%A3%E5%8D%95%E7%89%87%E6%9C%BA/">2.1.1.了解单片机</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">1.2k</span><span class="post-meta__separator">|</span><span>Reading time: 3 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>很长一段时间以来在word上记了一些笔记，但却一直没能回头复习。再三斟酌，决定将笔记以博客的形式写出来，并借此机会对所学内容进行一次复习，我想应该不用太多时间就能搬运完。</p>
+<p>C语言基础将从单片机开始写，直接学习C语言未免过于乏味，但如果通过C语言在单片机上的应用来间接学习C语言，就能让理论与实际充分结合，达到事半功倍的效果。</p>
+<h2 id="单片机可以做什么"><a class="markdownIt-Anchor" href="#单片机可以做什么"></a> 单片机可以做什么</h2>
+<p>单片机：CPU、存储器、IO接口、定时器集成到一个硅片上，具有小而完整的微型计算机系统。<br />
+单片机使用灵活，经过二次硬件和软件开发，实现不同功能，满足不同需求。<br />
+硬件工程师：根据单片机资源设计硬件电路、原理图设计、PCB绘制、硬件功能调试。<br />
+软件工程师：单片机C语言基础、程序开发环境、程序的烧录、软件功能调试与测试。</p>
+<h2 id="单片机资源有哪些"><a class="markdownIt-Anchor" href="#单片机资源有哪些"></a> 单片机资源有哪些</h2>
+<p>STC15W104接口资源介绍：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>资源数量或大小</th>
+<th>资源作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工作电压</td>
+<td>2.4-5.5V</td>
+<td></td>
+</tr>
+<tr>
+<td>程序空间（FLASH ROM）</td>
+<td>4K=4096bytes</td>
+<td>用于存储单片机代码(code)</td>
+</tr>
+<tr>
+<td>SRAM</td>
+<td>128bytes</td>
+<td>用来存储单片机代码中的变量（变量的定义不能大于128字节）</td>
+</tr>
+<tr>
+<td>EEPROM</td>
+<td>1K</td>
+<td>具有掉电保存功能</td>
+</tr>
+<tr>
+<td>IO</td>
+<td>6个，P3.0-P3.5</td>
+<td>单片机的输入输出端口。对于AT89C52芯片，P0.0-P0.7、P1.0-P1.7、P2、P3</td>
+</tr>
+<tr>
+<td>定时器</td>
+<td>2个</td>
+<td>精准定时。电子时钟-&gt;定时器。</td>
+</tr>
+<tr>
+<td>串口</td>
+<td></td>
+<td>串口是单片机与外部设备通讯的重要接口。芯片与芯片之间通讯。例WIFI/蓝牙/4G</td>
+</tr>
+<tr>
+<td>ADC</td>
+<td></td>
+<td>稍高端的单片机集成。模拟的实际电压转成数字信号。普通IO接口只识别高低电平，有ADC的IO可识别模拟电压。</td>
+</tr>
+<tr>
+<td>DAC</td>
+<td></td>
+<td>通过端口输出一个模拟电压。普通IO只输出高低电平，DAC可输出一个模拟电压（0-VCC）的一个任意电压。</td>
+</tr>
+<tr>
+<td>SPI/IIC（串行协议）</td>
+<td></td>
+<td>都是标准通讯接口。一般用于实现芯片之间通讯。<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenpuo/article/details/81023882"><strong>I2C和SPI总线对比</strong></a></td>
+</tr>
+<tr>
+<td>看门狗</td>
+<td></td>
+<td>用来防止代码程序死机与非正常运行。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="进制的介绍与转换"><a class="markdownIt-Anchor" href="#进制的介绍与转换"></a> 进制的介绍与转换</h2>
+<p>最小储存单元为bit（比特），存0和1<br />
+8个储存元组成1Byte（字节）</p>
+<p>二进制：单片机单个IO的配置，使用少，一般用16进制表示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示方法：b00100011</span><br></pre></td></tr></table></figure>
+<p>十进制：一般使用于单片机算术计算，逻辑计算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示方法：35</span><br></pre></td></tr></table></figure>
+<p>十六进制：寄存器配置、运算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示方法：0x23</span><br></pre></td></tr></table></figure>
+<h2 id="c51点亮第一个led灯"><a class="markdownIt-Anchor" href="#c51点亮第一个led灯"></a> C51点亮第一个LED灯</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">任务: 点亮无线门磁探测器的LED1 LED2 </span><br><span class="line">准备：无线门磁探测器、烧录器、数字电源一台、电脑1台（安装KEIL C51）</span><br><span class="line">原理：C语言源程序-&gt;C编译器-&gt;汇编代码-&gt;汇编器-&gt;机器代码(.hex  .bin)</span><br></pre></td></tr></table></figure>
+<p>点亮LED灯有以下步骤</p>
+<blockquote>
+<blockquote>
+<p>STC15W104 工程新建<br />
+STC15W104 生成烧录文件<br />
+HEX为单片机可识别的文件</p>
+</blockquote>
+<blockquote>
+<p>STC15W104 单片机烧录方法<br />
+冷启动烧录：先下载程序再供电<br />
+热启动烧录：供电情况下烧录程序</p>
+</blockquote>
+<blockquote>
+<p>点亮LED灯</p>
+</blockquote>
+</blockquote>
+<p>单片机的高低电平：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">低电平：GND    # 低压0V</span><br><span class="line">高电平：VCC    # 单片机的供电电压</span><br></pre></td></tr></table></figure>
+<p>单片机的普通IO口只能输出高电平或者低电平：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IO=0 则单片机的IO口输出低电平   0V</span><br><span class="line">IO=1 则单片机的IO口输出高电平   VCC</span><br></pre></td></tr></table></figure>
+<p>具体操作步骤：</p>
+<ol>
+<li>安装烧录接口驱动</li>
+<li>在STC-ISP的“keil仿真设置”中点击“添加型号和头文件到keil中”，选择keil_C51所在文件夹</li>
+<li>在keil中新建new project，设置项目文件夹与项目文件名，选择项目用到的芯片，建立项目</li>
+<li>创建主函数文件main.c，并将之加入到project中，再继续编写main.c文件，添加头文件，将头文件修改成使用的型号，型号在keil目录中的INC文件夹中可以找到。</li>
+<li>编写好主函数之后，点击option for taget，选择output选项卡，点击编译，生成HEX文件。</li>
+<li>然后回到STC-ISP中，选择芯片，选择烧录器的串口，选择工作晶振频率5.5296Mhz，导入程序文件，连接烧录器和无线门磁探测器，再冷启动烧录。</li>
+</ol>
+<p>关于延时函数：<em>nop</em>()函数存在于头文件#include &quot;intrins.h&quot;中，表示一个机械周期，一个机械周期包含12个时钟周期，一个时钟周期的时长为晶振频率的倒数。1个机械周期 = 12个时钟周期 = 12 * (1/f)。（f 为晶振频率）</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MagicConch</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://magic989.github.io/2023/08/18/2.1.1.1-单片机基本理解/">https://magic989.github.io/2023/08/18/2.1.1.1-单片机基本理解/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a><a class="post-meta__tags" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/">单片机</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/08/18/2.1.2.1-C%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BA%94%E7%94%A8/"><i class="fa fa-chevron-left">  </i><span>2.1.2.1-C语言中变量的定义与应用</span></a></div><div class="next-post pull-right"><a href="/2023/08/18/1.4-%E4%B8%BAMelody%E4%B8%BB%E9%A2%98%E7%9A%84HEXO%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0gitalk%E8%AF%84%E8%AE%BA%E5%8C%BA/"><span>1.4-为Melody主题的HEXO博客添加gitalk评论区</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '83ec5ffc47398a66b4ec',
+  clientSecret: 'e4202d09f658b7f1f791b51906d46a0ffdec3d51',
+  repo: 'blog-comment',
+  owner: 'Magic989',
+  admin: 'Magic989',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(/img/top_img.webp)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2023 By MagicConch</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/algolia.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
