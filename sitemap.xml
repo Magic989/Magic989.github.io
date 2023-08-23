@@ -29,15 +29,6 @@
   </url>
   
   <url>
-    <loc>https://magic989.github.io/js/APlayer/docs/zh-Hans/ecosystem.html</loc>
-    
-    <lastmod>2023-08-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://magic989.github.io/js/APlayer/docs/zh-Hans/support.html</loc>
     
     <lastmod>2023-08-21</lastmod>
@@ -47,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://magic989.github.io/js/APlayer/docs/support.html</loc>
+    <loc>https://magic989.github.io/js/APlayer/docs/zh-Hans/ecosystem.html</loc>
     
     <lastmod>2023-08-21</lastmod>
     
@@ -57,6 +48,15 @@
   
   <url>
     <loc>https://magic989.github.io/js/APlayer/docs/zh-Hans/README.html</loc>
+    
+    <lastmod>2023-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://magic989.github.io/js/APlayer/docs/support.html</loc>
     
     <lastmod>2023-08-21</lastmod>
     
