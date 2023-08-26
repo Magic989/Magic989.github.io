@@ -6,7 +6,7 @@
   <link href="https://blog.magicconch.top/atom.xml" rel="self"/>
   
   <link href="https://blog.magicconch.top/"/>
-  <updated>2023-08-26T02:52:45.191Z</updated>
+  <updated>2023-08-26T03:32:58.198Z</updated>
   <id>https://blog.magicconch.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.magicconch.top/2023/08/26/2.2.3-%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E5%9B%B4%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9D%97/"/>
     <id>https://blog.magicconch.top/2023/08/26/2.2.3-%E5%8D%95%E7%89%87%E6%9C%BA%E5%A4%96%E5%9B%B4%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%9A%84%E9%87%8D%E8%A6%81%E6%A8%A1%E5%9D%97/</id>
     <published>2023-08-26T02:41:00.000Z</published>
-    <updated>2023-08-26T02:52:45.191Z</updated>
+    <updated>2023-08-26T03:32:58.198Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="常用电源电路"><a class="markdownIt-Anchor" href="#常用电源电路"></a> 常用电源电路</h2><table><thead><tr><th>参数</th><th>典型值</th></tr></thead><tbody><tr><td>常用的供电电源</td><td>AC220V, DC24V, DC12V, DC9V, DC5V</td></tr><tr><td>常用的电池</td><td>12V, 9V, 7.4V, 3.7V, 3V, 1.5V, 1.2V等</td></tr><tr><td>常用芯片供电电压</td><td>5V, 3.3V, 1.8V等</td></tr><tr><td>常见的电源芯片</td><td>LM1117-5.0 (-3.3V), HT7550(7530), LM7850, LM29302, EL1513E, LM2596</td></tr></tbody></table><p>电源设计注意事项：</p><ol><li>输入电压</li><li>输出电压</li><li>输出最大电流</li><li>输出电源纹波</li><li>其他参数</li></ol><h2 id="led驱动电路"><a class="markdownIt-Anchor" href="#led驱动电路"></a> LED驱动电路</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="常用电源电路"><a class="markdownIt-Anchor" href="#常用电源电路"></a> 常用电源电路</h2><table><thead><tr><th>参数</th><th>典型值</th></tr></thead><tbody><tr><td>常用的供电电源</td><td>AC220V, DC24V, DC12V, DC9V, DC5V</td></tr><tr><td>常用的电池</td><td>12V, 9V, 7.4V, 3.7V, 3V, 1.5V, 1.2V等</td></tr><tr><td>常用芯片供电电压</td><td>5V, 3.3V, 1.8V等</td></tr><tr><td>常见的电源芯片</td><td>LM1117-5.0 (-3.3V), HT7550(7530), LM7850, LM29302, EL1513E, LM2596</td></tr></tbody></table><p>电源设计注意事项：</p><ol><li>输入电压</li><li>输出电压</li><li>输出最大电流</li><li>输出电源纹波</li><li>其他参数</li></ol><h2 id="led驱动电路"><a class="markdownIt-Anchor" href="#led驱动电路"></a> LED驱动电路</h2><p><img src="/img/2.2.3/%E5%B8%B8%E8%A7%84LED%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF.webp" alt="常规LED驱动电路.webp" /><br /><img src="/imh/2.2.3/%E9%94%99%E8%AF%AFLED%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF.webp" alt="错误LED驱动电路.webp" /></p>]]></content>
     
     
       
