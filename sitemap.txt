@@ -7,8 +7,8 @@ https://blog.magicconch.top/js/APlayer/docs/zh-Hans/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/support.html
 https://blog.magicconch.top/js/APlayer/docs/support.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/README.html
-https://blog.magicconch.top/js/APlayer/docs/index.html
 https://blog.magicconch.top/js/APlayer/docs/landing.html
+https://blog.magicconch.top/js/APlayer/docs/index.html
 https://blog.magicconch.top/js/APlayer/docs/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/README.html
 https://blog.magicconch.top/js/APlayer/demo/index.html
