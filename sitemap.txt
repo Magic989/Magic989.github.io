@@ -10,12 +10,12 @@ https://blog.magicconch.top/img/README.html
 https://blog.magicconch.top/link/index.html
 https://blog.magicconch.top/2023/08/20/2.2.1-%E4%BA%A4%E6%B5%81%E7%94%B5%E4%B8%A8%E7%9B%B4%E6%B5%81%E7%94%B5/
 https://blog.magicconch.top/js/APlayer/package.json
-https://blog.magicconch.top/js/APlayer/docs/zh-Hans/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/support.html
+https://blog.magicconch.top/js/APlayer/docs/zh-Hans/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/support.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/README.html
-https://blog.magicconch.top/js/APlayer/docs/index.html
 https://blog.magicconch.top/js/APlayer/docs/landing.html
+https://blog.magicconch.top/js/APlayer/docs/index.html
 https://blog.magicconch.top/js/APlayer/docs/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/README.html
 https://blog.magicconch.top/js/APlayer/demo/index.html
