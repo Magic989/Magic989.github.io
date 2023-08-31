@@ -11,12 +11,12 @@ https://blog.magicconch.top/img/README.html
 https://blog.magicconch.top/link/index.html
 https://blog.magicconch.top/2023/08/20/2.2.1-%E4%BA%A4%E6%B5%81%E7%94%B5%E4%B8%A8%E7%9B%B4%E6%B5%81%E7%94%B5/
 https://blog.magicconch.top/js/APlayer/package.json
-https://blog.magicconch.top/js/APlayer/docs/zh-Hans/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/support.html
+https://blog.magicconch.top/js/APlayer/docs/zh-Hans/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/support.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/README.html
-https://blog.magicconch.top/js/APlayer/docs/landing.html
 https://blog.magicconch.top/js/APlayer/docs/index.html
+https://blog.magicconch.top/js/APlayer/docs/landing.html
 https://blog.magicconch.top/js/APlayer/docs/ecosystem.html
 https://blog.magicconch.top/js/APlayer/docs/README.html
 https://blog.magicconch.top/js/APlayer/demo/index.html
@@ -39,6 +39,6 @@ https://blog.magicconch.top/tags/%E7%A1%AC%E4%BB%B6/
 https://blog.magicconch.top/categories/1-HEXO/
 https://blog.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/
 https://blog.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/
+https://blog.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/
 https://blog.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/
 https://blog.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-1-%E4%BA%86%E8%A7%A3%E5%8D%95%E7%89%87%E6%9C%BA/
-https://blog.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/
