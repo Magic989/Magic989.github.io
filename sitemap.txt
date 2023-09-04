@@ -18,8 +18,8 @@ https://blog.magicconch.top/google9634270805f1cad8.html
 https://blog.magicconch.top/img/README.html
 https://blog.magicconch.top/link/index.html
 https://blog.magicconch.top/js/APlayer/package.json
-https://blog.magicconch.top/js/APlayer/docs/zh-Hans/support.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/ecosystem.html
+https://blog.magicconch.top/js/APlayer/docs/zh-Hans/support.html
 https://blog.magicconch.top/js/APlayer/docs/support.html
 https://blog.magicconch.top/js/APlayer/docs/zh-Hans/README.html
 https://blog.magicconch.top/js/APlayer/docs/index.html
