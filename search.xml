@@ -4,37 +4,6 @@
   
     
     <entry>
-      <title>2.3.3-无线门磁探测器软件设计（施工中）</title>
-      <link href="/2999/09/04/2.3.3-%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
-      <url>/2999/09/04/2.3.3-%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 2. 嵌入式 </category>
-          
-          <category> 2.3. 实战项目一：无线门磁探测器 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-            <tag> 单片机 </tag>
-            
-            <tag> 项目实战 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>2.3.2-无线门磁探测器硬件设计（施工中）</title>
       <link href="/2023/09/04/2.3.2-%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
       <url>/2023/09/04/2.3.2-%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/</url>
@@ -544,6 +513,37 @@
         <tags>
             
             <tag> HEXO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2.3.3-无线门磁探测器软件设计（施工中）</title>
+      <link href="/1984/09/04/2.3.3-%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+      <url>/1984/09/04/2.3.3-%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 2. 嵌入式 </category>
+          
+          <category> 2.3. 实战项目一：无线门磁探测器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+            <tag> 单片机 </tag>
+            
+            <tag> 项目实战 </tag>
             
         </tags>
       
