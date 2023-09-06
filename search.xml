@@ -29,37 +29,6 @@
     
     
     <entry>
-      <title>2.3.2-无线门磁探测器硬件设计（施工中）</title>
-      <link href="/posts/46919.html"/>
-      <url>/posts/46919.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 2. 嵌入式 </category>
-          
-          <category> 2.3. 实战项目一：无线门磁探测器 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 嵌入式 </tag>
-            
-            <tag> 单片机 </tag>
-            
-            <tag> 项目实战 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>2.3.1-无线门磁探测器开发概要</title>
       <link href="/posts/51745.html"/>
       <url>/posts/51745.html</url>
@@ -551,6 +520,37 @@
       <url>/posts/34287.html</url>
       
         <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 2. 嵌入式 </category>
+          
+          <category> 2.3. 实战项目一：无线门磁探测器 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+            <tag> 单片机 </tag>
+            
+            <tag> 项目实战 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2.3.2-无线门磁探测器硬件设计（施工中）</title>
+      <link href="/posts/46919.html"/>
+      <url>/posts/46919.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="硬件设计流程"><a class="markdownIt-Anchor" href="#硬件设计流程"></a> 硬件设计流程</h2>]]></content>
       
       
       <categories>
