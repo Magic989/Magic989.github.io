@@ -46,9 +46,9 @@
     <link href="https://www.magicconch.top/posts/51745.html"/>
     <id>https://www.magicconch.top/posts/51745.html</id>
     <published>2023-09-01T13:21:00.000Z</published>
-    <updated>2023-09-06T02:47:39.408Z</updated>
+    <updated>2023-09-06T09:52:00.688Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="电子产品开发流程"><a class="markdownIt-Anchor" href="#电子产品开发流程"></a> 电子产品开发流程</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.1/%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B.webp" alt="P1-电子产品开发流程.webp" /></p><p>电子产品立项有以下要点</p><table><thead><tr><th>要点</th><th>备注</th></tr></thead><tbody><tr><td>成本评估</td><td>BOM单品成本、开发物料成本、人工成本、时间成本</td></tr><tr><td>开发周期评估（开题报告）</td><td>开发周期、开发阶段性成果要求</td></tr><tr><td>风险评估</td><td>技术风险、认证风险等</td></tr><tr><td>开发团队的组建</td><td>硬件、软件、测试、结构、UI工程师等</td></tr><tr><td>…</td><td></td></tr></tbody></table><h2 id="门磁探测器简单介绍"><a class="markdownIt-Anchor" href="#门磁探测器简单介绍"></a> 门磁探测器简单介绍</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.1/%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E5%A4%96%E8%A7%82.png" alt="P2-无线门磁探测器外观.png" /></p><p>门磁探测器是用来探测门、窗、抽屉等是否被非法打开或移动的报警器，由门磁主体和永磁体构成。</p><p>门磁产品的分类：</p><table><thead><tr><th>类别</th><th>通讯方式</th></tr></thead><tbody><tr><td>有线门磁</td><td>485通讯, 开关信号…</td></tr><tr><td>无线门磁</td><td>ASK, FSK, 蓝牙, WIFI, NB-IotLora等</td></tr><tr><td>独立门磁</td><td>现场报警提示</td></tr></tbody></table><h2 id="门磁探测器开发主要内容"><a class="markdownIt-Anchor" href="#门磁探测器开发主要内容"></a> 门磁探测器开发主要内容</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.1/%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E9%A1%B9%E7%9B%AE%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9.webp" alt="P3-无线门磁项目主要内容.webp" /></p><h2 id="门磁探测器开发需求"><a class="markdownIt-Anchor" href="#门磁探测器开发需求"></a> 门磁探测器开发需求</h2><h3 id="产品设计说明"><a class="markdownIt-Anchor" href="#产品设计说明"></a> 产品设计说明</h3><p>门磁探测器是基于433MHz无线技术开发的安防门窗状态检测探测器，配套市场上众多品牌的安防报警主机使用。<br />产品支持开关门两种状态检测上报，支持电池低压报警。提供硬件、软件、测试等整体资料，需要配套无线主机使用，只需做简单修改即可。</p><h3 id="产品模具与外壳"><a class="markdownIt-Anchor" href="#产品模具与外壳"></a> 产品模具与外壳</h3><p>本产品的外壳选择的基于携达科技的一款公模外壳。<a href="https://detail.1688.com/offer/41757056686.html?spm=a26352.13672862.offerlist.12.d03c497crXyeJI">购买方式</a></p><h3 id="产品要求"><a class="markdownIt-Anchor" href="#产品要求"></a> 产品要求</h3><h4 id="总体需求"><a class="markdownIt-Anchor" href="#总体需求"></a> 总体需求</h4><table><thead><tr><th>指标</th><th>参数</th></tr></thead><tbody><tr><td>成本控制</td><td>BOM成本 &lt; 5元</td></tr><tr><td>待机电流</td><td>&lt; 5 uA</td></tr><tr><td>使用寿命</td><td>2年左右</td></tr><tr><td>无线通讯距离</td><td>空旷区域, 大于120米</td></tr><tr><td>是否可以穿墙</td><td>支持</td></tr><tr><td>主要功能</td><td>开门检测、关门检测、电池低压检测</td></tr></tbody></table><h4 id="供电及电压"><a class="markdownIt-Anchor" href="#供电及电压"></a> 供电及电压</h4><table><thead><tr><th>指标</th><th>参数</th></tr></thead><tbody><tr><td>供电方式</td><td>干电池</td></tr><tr><td>型号</td><td>23A</td></tr><tr><td>供电电压</td><td>12V</td></tr><tr><td>待机电流</td><td>&lt;5uA</td></tr><tr><td>无线发射电流</td><td>&lt;15mA</td></tr></tbody></table><h4 id="无线参数"><a class="markdownIt-Anchor" href="#无线参数"></a> 无线参数</h4><table><thead><tr><th>指标</th><th>参数</th></tr></thead><tbody><tr><td>编码方式</td><td>ASK(OOK)</td></tr><tr><td>无线地址</td><td>20bit</td></tr><tr><td>功能码</td><td>4bit</td></tr><tr><td>震荡电阻</td><td>330K 可定制</td></tr><tr><td>无线发射距离</td><td>空旷区域   &gt; 120 m</td></tr><tr><td>EV1527编码</td><td>内置兼容</td></tr><tr><td>PT2262编码</td><td>需定制开发</td></tr><tr><td>发射频率</td><td>433.92MHZ（可选315MHZ,868.32MHZ)）</td></tr><tr><td>编码方式</td><td>MCU内部编码</td></tr></tbody></table><h4 id="主要功能和上报数据说明"><a class="markdownIt-Anchor" href="#主要功能和上报数据说明"></a> 主要功能和上报数据说明</h4><table><thead><tr><th>指标</th><th>支持情况</th></tr></thead><tbody><tr><td>开门数据上报</td><td>支持</td></tr><tr><td>关门数据上报</td><td>支持（可关闭）</td></tr><tr><td>电池低压数据上报</td><td>支持（可关闭）</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h2 id="电子产品开发流程"><a class="markdownIt-Anchor" href="#电子产品开发流程"></a> 电子产品开发流程</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.1/%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B.webp" alt="P1-电子产品开发流程.webp" /></p><p>电子产品立项有以下要点</p><table><thead><tr><th>要点</th><th>备注</th></tr></thead><tbody><tr><td>成本评估</td><td>BOM单品成本、开发物料成本、人工成本、时间成本</td></tr><tr><td>开发周期评估（开题报告）</td><td>开发周期、开发阶段性成果要求</td></tr><tr><td>风险评估</td><td>技术风险、认证风险等</td></tr><tr><td>开发团队的组建</td><td>硬件、软件、测试、结构、UI工程师等</td></tr><tr><td>…</td><td></td></tr></tbody></table><h2 id="门磁探测器简单介绍"><a class="markdownIt-Anchor" href="#门磁探测器简单介绍"></a> 门磁探测器简单介绍</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.1/%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8%E5%A4%96%E8%A7%82.png" alt="P2-无线门磁探测器外观.png" /></p><p>门磁探测器是用来探测门、窗、抽屉等是否被非法打开或移动的报警器，由门磁主体和永磁体构成。</p><p>门磁产品的分类：</p><table><thead><tr><th>类别</th><th>通讯方式</th></tr></thead><tbody><tr><td>有线门磁</td><td>485通讯, 开关信号…</td></tr><tr><td>无线门磁</td><td>ASK, FSK, 蓝牙, WIFI, NB-IotLora等</td></tr><tr><td>独立门磁</td><td>现场报警提示</td></tr></tbody></table><h2 id="门磁探测器开发主要内容"><a class="markdownIt-Anchor" href="#门磁探测器开发主要内容"></a> 门磁探测器开发主要内容</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.1/%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E9%A1%B9%E7%9B%AE%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9.webp" alt="P3-无线门磁项目主要内容.webp" /></p><h2 id="门磁探测器开发需求"><a class="markdownIt-Anchor" href="#门磁探测器开发需求"></a> 门磁探测器开发需求</h2><h3 id="产品设计说明"><a class="markdownIt-Anchor" href="#产品设计说明"></a> 产品设计说明</h3><p>门磁探测器是基于433MHz无线技术开发的安防门窗状态检测探测器，配套市场上众多品牌的安防报警主机使用。<br />产品支持开关门两种状态检测上报，支持电池低压报警。提供硬件、软件、测试等整体资料，需要配套无线主机使用，只需做简单修改即可。</p><h3 id="产品模具与外壳"><a class="markdownIt-Anchor" href="#产品模具与外壳"></a> 产品模具与外壳</h3><p>本产品的外壳选择的是基于携达科技的一款公模外壳。<a href="https://detail.1688.com/offer/41757056686.html?spm=a26352.13672862.offerlist.12.d03c497crXyeJI">购买方式</a></p><h3 id="产品要求"><a class="markdownIt-Anchor" href="#产品要求"></a> 产品要求</h3><h4 id="总体需求"><a class="markdownIt-Anchor" href="#总体需求"></a> 总体需求</h4><table><thead><tr><th>指标</th><th>参数</th></tr></thead><tbody><tr><td>成本控制</td><td>BOM成本 &lt; 5元</td></tr><tr><td>待机电流</td><td>&lt; 5 uA</td></tr><tr><td>使用寿命</td><td>2年左右</td></tr><tr><td>无线通讯距离</td><td>空旷区域, 大于120米</td></tr><tr><td>是否可以穿墙</td><td>支持</td></tr><tr><td>主要功能</td><td>开门检测、关门检测、电池低压检测</td></tr></tbody></table><h4 id="供电及电压"><a class="markdownIt-Anchor" href="#供电及电压"></a> 供电及电压</h4><table><thead><tr><th>指标</th><th>参数</th></tr></thead><tbody><tr><td>供电方式</td><td>干电池</td></tr><tr><td>型号</td><td>23A</td></tr><tr><td>供电电压</td><td>12V</td></tr><tr><td>待机电流</td><td>&lt;5uA</td></tr><tr><td>无线发射电流</td><td>&lt;15mA</td></tr></tbody></table><h4 id="无线参数"><a class="markdownIt-Anchor" href="#无线参数"></a> 无线参数</h4><table><thead><tr><th>指标</th><th>参数</th></tr></thead><tbody><tr><td>编码方式</td><td>ASK(OOK)</td></tr><tr><td>无线地址</td><td>20bit</td></tr><tr><td>功能码</td><td>4bit</td></tr><tr><td>震荡电阻</td><td>330K 可定制</td></tr><tr><td>无线发射距离</td><td>空旷区域   &gt; 120 m</td></tr><tr><td>EV1527编码</td><td>内置兼容</td></tr><tr><td>PT2262编码</td><td>需定制开发</td></tr><tr><td>发射频率</td><td>433.92MHZ（可选315MHZ,868.32MHZ)）</td></tr><tr><td>编码方式</td><td>MCU内部编码</td></tr></tbody></table><h4 id="主要功能和上报数据说明"><a class="markdownIt-Anchor" href="#主要功能和上报数据说明"></a> 主要功能和上报数据说明</h4><table><thead><tr><th>指标</th><th>支持情况</th></tr></thead><tbody><tr><td>开门数据上报</td><td>支持</td></tr><tr><td>关门数据上报</td><td>支持（可关闭）</td></tr><tr><td>电池低压数据上报</td><td>支持（可关闭）</td></tr></tbody></table>]]></content>
     
     
       
@@ -552,12 +552,20 @@
   </entry>
   
   <entry>
-    <title>2.3.3-无线门磁探测器软件设计（施工中）</title>
-    <link href="https://www.magicconch.top/posts/34287.html"/>
-    <id>https://www.magicconch.top/posts/34287.html</id>
+    <title>2.3.2-无线门磁探测器硬件设计（施工中）</title>
+    <link href="https://www.magicconch.top/posts/46919.html"/>
+    <id>https://www.magicconch.top/posts/46919.html</id>
     <published>1984-09-04T09:40:00.000Z</published>
-    <updated>2023-09-06T02:55:04.484Z</updated>
+    <updated>2023-09-06T08:15:10.086Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="硬件设计流程"><a class="markdownIt-Anchor" href="#硬件设计流程"></a> 硬件设计流程</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.2/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B.webp" alt="P1.1-硬件设计流程.webp" /></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;硬件设计流程&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#硬件设计流程&quot;&gt;&lt;/a&gt; 硬件设计流程&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://oss.magicconch.top/api/raw/?path=/img/2.3.</summary>
+      
     
     
     
@@ -575,20 +583,12 @@
   </entry>
   
   <entry>
-    <title>2.3.2-无线门磁探测器硬件设计（施工中）</title>
-    <link href="https://www.magicconch.top/posts/46919.html"/>
-    <id>https://www.magicconch.top/posts/46919.html</id>
+    <title>2.3.3-无线门磁探测器软件设计（施工中）</title>
+    <link href="https://www.magicconch.top/posts/34287.html"/>
+    <id>https://www.magicconch.top/posts/34287.html</id>
     <published>1984-09-04T09:40:00.000Z</published>
-    <updated>2023-09-06T07:58:18.208Z</updated>
+    <updated>2023-09-06T02:55:04.484Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="硬件设计流程"><a class="markdownIt-Anchor" href="#硬件设计流程"></a> 硬件设计流程</h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;硬件设计流程&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#硬件设计流程&quot;&gt;&lt;/a&gt; 硬件设计流程&lt;/h2&gt;
-</summary>
-      
     
     
     
