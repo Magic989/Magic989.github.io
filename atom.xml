@@ -556,9 +556,9 @@
     <link href="https://www.magicconch.top/posts/46919.html"/>
     <id>https://www.magicconch.top/posts/46919.html</id>
     <published>1984-09-04T09:40:00.000Z</published>
-    <updated>2023-09-06T09:52:43.444Z</updated>
+    <updated>2023-09-07T12:00:12.824Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="硬件设计流程"><a class="markdownIt-Anchor" href="#硬件设计流程"></a> 硬件设计流程</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.2/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B.webp" alt="P1.1-硬件设计流程.webp" /></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="硬件设计流程"><a class="markdownIt-Anchor" href="#硬件设计流程"></a> 硬件设计流程</h2><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.2/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B.webp" alt="P1.1-硬件设计流程.webp" /></p><h2 id="关键物料选型"><a class="markdownIt-Anchor" href="#关键物料选型"></a> 关键物料选型</h2><p>MCU: STC15W104<br />干簧管: 磁簧开关(Reed Switch)也称之为干簧管，它是一个通过所施加的磁场操作的电开关。基本型式是将两片磁簧片密封在玻璃管内，两片虽重叠，但中间间隔有一小空隙。当外来磁场时将使两片磁簧片接触，进而导通。 一旦磁体被拉到远离开关，磁簧开关将返回到其原来的位置。<br />电源模块: &quot;12A&quot;电池 + HT7530稳压管</p><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.2/%E5%B9%B2%E7%B0%A7%E7%AE%A1.webp" alt="P2.1-干簧管.webp" /></p><p><img src="https://oss.magicconch.top/api/raw/?path=/img/2.3.2/%E6%88%90%E6%9C%AC%E5%88%9D%E6%AD%A5%E6%A0%B8%E7%AE%97.webp" alt="P2.2-成本初步核算.webp" /></p><h2 id="pcb设计软件altium-designer"><a class="markdownIt-Anchor" href="#pcb设计软件altium-designer"></a> PCB设计软件(Altium Designer)</h2><p><a href="https://www.bilibili.com/video/BV1GL411V7QP/?from=search&amp;seid=3435152784139761603&amp;spm_id_from=333.337.0.0&amp;vd_source=723bcc95ea546f87d4985cbd117c5454">Altium Designer安装</a></p><p>理解原理图、PCB、原理图库、PCB库。<br />注意建立完成的工程的后缀对应的文件。<br />AD设计不是为了电路仿真，是为了导出印刷电路板，电路仿真可以考虑使用Multisim。</p><h2 id="无线门磁探测器原理图设计以及绘制"><a class="markdownIt-Anchor" href="#无线门磁探测器原理图设计以及绘制"></a> 无线门磁探测器原理图设计以及绘制</h2><p>理解visible grid和snap grid。<br />元件库的建立以及元件库内元件的设计，放置。（设计干簧管）<br />电磁控制电路和电源电路的讲解，干簧管控制输入电源的电平高低，电源电路采用HT7530将12V电压输出为3V电压。</p>]]></content>
     
     
       
