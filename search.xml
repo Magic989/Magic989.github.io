@@ -581,7 +581,7 @@
       <link href="/posts/642554d6.html"/>
       <url>/posts/642554d6.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<blockquote><p>typedef &lt;原类型&gt; &lt;新类型名&gt;：是一种语句，为已有数据类型取别名。<br />作用：使代码更加简洁易懂，用typedef定义数组、指针、结构等类型将带来很大的方便，不仅使程序书写简单而且使意义更为明确，因而增强了可读性。</p></blockquote><blockquote><p>#define &lt;宏名/标识符&gt; &lt;字符串&gt;：是一种预编译指令，在编译前会把源程序中的&lt;宏名/标识符&gt;用对应的&lt;字符串&gt;来替代。</p></blockquote><h2 id="执行时间不同"><a class="markdownIt-Anchor" href="#执行时间不同"></a> 执行时间不同</h2><p>typedef在编译阶段有效，所以有类型检查的功能，出现变量和数据类型错误时能及时报错。<br />而#define则发生在预处理阶段，只进行简单机械的字符串替换，不进行任何检查，所以不占用程序空间(FLASH ROM)。</p><h2 id="功能不同"><a class="markdownIt-Anchor" href="#功能不同"></a> 功能不同</h2><p>对于typedef：</p><ol><li>使类型易于记忆，可定义类型别名，这些类型不只包含内部类型（int，char等），还包括自定义类型（如struct）。</li><li>简化一些比较复杂的类型声明。</li><li>定义与机器有关的类型，提高代码可移植性。在移植代码时，程序员只需要修改typedef后的数据类型为宿主机支持的类型即可，而不必修改整个项目中的所有类型。</li></ol><blockquote><p>例如，定义一个叫 REAL 的浮点类型，在目标机器上它可以获得最高的精度：<br />typedef long double REAL;<br />在不支持 long double 的机器上，该 typedef 看起来会是下面这样：<br />typedef double REAL;<br />并且，在连 double 都不支持的机器上，该 typedef 看起来会是这样：<br />typedef float REAL;</p></blockquote><hr /><p>对于#define：</p><ol><li>不只可以为数据类型取别名，还可以定义常量、变量、编译开关等，不过他只是单纯的替换。</li><li>可以使用#ifdef、#ifndef等来进行逻辑判断，还可以使用#undef来取消定义。</li></ol>]]></content>
       
       
       <categories>
