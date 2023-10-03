@@ -613,4 +613,31 @@
     
   </entry>
   
+  <entry>
+    <title>2.1.3.1-从typedef和#define的差异理解typedef关键字的使用</title>
+    <link href="https://www.magicconch.top/posts/642554d6.html"/>
+    <id>https://www.magicconch.top/posts/642554d6.html</id>
+    <published>1984-10-03T06:47:00.000Z</published>
+    <updated>2023-10-03T01:42:39.246Z</updated>
+    
+    
+    
+    
+    <category term="2. 嵌入式" scheme="https://www.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="2.1. C语言基础" scheme="https://www.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="2.1.3. 程序架构内核" scheme="https://www.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-3-%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84%E5%86%85%E6%A0%B8/"/>
+    
+    
+    <category term="嵌入式" scheme="https://www.magicconch.top/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="单片机" scheme="https://www.magicconch.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="C语言" scheme="https://www.magicconch.top/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="程序架构" scheme="https://www.magicconch.top/tags/%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
 </feed>
