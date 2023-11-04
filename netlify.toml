@@ -1,8 +1,8 @@
-#[[redirects]]
-#  from = "https://magicconch-blog.netlify.app/*"
-#  to = "https://www.magicconch.top/:splat"
-#  status = 301
-#  force = true
+[[redirects]]
+  from = "https://magicconch-blog.netlify.app/*"
+  to = "https://www.magicconch.top/:splat"
+  status = 301
+  force = true
 [[redirects]]
   from = "https://magicconch.top/*"
   to = "https://www.magicconch.top/:splat"
