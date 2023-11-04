@@ -1,9 +1,8 @@
-[[redirects]]
-  from = "https://magicconch-blog.netlify.app/*"
-# :splat 是为了原路径保持，不然会跳转到主页  
-  to = "https://www.magicconch.top/:splat"
-  status = 301
-  force = true
+#[[redirects]]
+#  from = "https://magicconch-blog.netlify.app/*"
+#  to = "https://www.magicconch.top/:splat"
+#  status = 301
+#  force = true
 [[redirects]]
   from = "https://magicconch.top/*"
   to = "https://www.magicconch.top/:splat"
@@ -14,3 +13,6 @@
   to = "https://www.magicconch.top/:splat"
   status = 301
   force = true
+
+
+# :splat 是为了原路径保持，不然会跳转到主页  
