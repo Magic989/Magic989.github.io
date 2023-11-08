@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2.1.3.2-指针基础及产品应用 | MagicConch's Blog</title><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用指针可以分离硬件层驱动程序(GPIO、串口、定时器)和应用层程序，达到程序分离、提高程序可移植性的目的，但是容易出bug。 1234567891011121314151617181920212223242526272829&#x2F;&#x2F; Pointer.cpp#include &lt;stdio.h&gt;int main()&amp;#123;    int a;      int *p; &#x2F;&#x2F;将int*视为">
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2.1.3.2-指针基础及产品应用 | MagicConch's Blog</title><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="使用指针可以分离硬件层驱动程序(GPIO、串口、定时器)和应用层程序，达到程序分离、提高程序可移植性的目的，但是容易出bug。 1234567891011121314151617181920212223242526272829&#x2F;&#x2F; Pointer.cpp#include &lt;stdio.h&gt;int main()&amp;#123;    int a;      int *p; &#x2F;&#x2F;将int*视为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.1.3.2-指针基础及产品应用">
 <meta property="og:url" content="https://www.magicconch.top/posts/f47db864.html">
@@ -56,7 +56,7 @@ gtag('config', 'G-DYGY9QND9W');
     toc: true,
     rightside: false,
   },
-  autoDarkmode: true
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '2.1.3.2-指针基础及产品应用',
   isPost: true,
@@ -142,28 +142,9 @@ gtag('config', 'G-DYGY9QND9W');
       }
       const t = saveToLocal.get('theme')
     
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {

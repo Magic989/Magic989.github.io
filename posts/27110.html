@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2.1.2.5-C语言#include-sfr-sbit关键字用法 | MagicConch's Blog</title><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="include关键字用法 12345#include            &#x2F;&#x2F; 包含一个源代码文件的头文件#include &lt;文件名&gt;   &#x2F;&#x2F; 如果需要包含标准库头文件或者实现版本所提供的头文件#include “文件名”   &#x2F;&#x2F; 如果需要包含针对程序所开发的源文件#include &lt;math.h&gt;#include “myfile.h” 使用尖括号&lt; &gt;">
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2.1.2.5-C语言#include-sfr-sbit关键字用法 | MagicConch's Blog</title><meta name="author" content="MagicConch"><meta name="copyright" content="MagicConch"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="include关键字用法 12345#include            &#x2F;&#x2F; 包含一个源代码文件的头文件#include &lt;文件名&gt;   &#x2F;&#x2F; 如果需要包含标准库头文件或者实现版本所提供的头文件#include “文件名”   &#x2F;&#x2F; 如果需要包含针对程序所开发的源文件#include &lt;math.h&gt;#include “myfile.h” 使用尖括号&lt; &gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2.1.2.5-C语言#include-sfr-sbit关键字用法">
 <meta property="og:url" content="https://www.magicconch.top/posts/27110.html">
@@ -55,7 +55,7 @@ gtag('config', 'G-DYGY9QND9W');
     toc: true,
     rightside: false,
   },
-  autoDarkmode: true
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: '2.1.2.5-C语言#include-sfr-sbit关键字用法',
   isPost: true,
@@ -141,28 +141,9 @@ gtag('config', 'G-DYGY9QND9W');
       }
       const t = saveToLocal.get('theme')
     
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
