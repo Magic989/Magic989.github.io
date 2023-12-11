@@ -6,7 +6,7 @@
   <link href="https://www.magicconch.top/atom.xml" rel="self"/>
   
   <link href="https://www.magicconch.top/"/>
-  <updated>2023-10-19T03:31:41.750Z</updated>
+  <updated>2023-12-11T12:30:32.308Z</updated>
   <id>https://www.magicconch.top/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2.1.3.5-回调函数及产品应用</title>
+    <link href="https://www.magicconch.top/posts/4ced47dc.html"/>
+    <id>https://www.magicconch.top/posts/4ced47dc.html</id>
+    <published>2023-12-11T06:58:00.000Z</published>
+    <updated>2023-12-11T12:30:32.308Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>程序架构的核心理念或需求</li><li>掌握回调函数的作用</li><li>掌握回调函数的程序编写</li><li>掌握回调函数在产品中的应用</li></ul><h2 id="程序结构的核心理念和需求"><a class="markdownIt-Anchor" href="#程序结构的核心理念和需求"></a> 程序结构的核心理念和需求</h2><p>很多人认为好的程序就是代码紧凑、算法精妙、执行效率高。<br />这个说法非常片面, 因为这些都是代码的局部特征, 局部写得好不代表代码整体上写得好。而好的架构要以 “大局” 为重, 思维不能局限于当前架构下的产品功能, 还要考虑到以后功能的增加和裁剪。<br />对于单片机开发来说, 一个好的程序架构至少要达到以下要求：</p><blockquote><p>硬件层和应用层的程序代码分开, 相互之间的控制和通讯使用接口, 不共享全局变量或数组。目的是提升可移植性和可扩展性。</p></blockquote><p>硬件层可以通过 <code>stm32</code> 的库函数打开单片机对应功能来调用, 应用层是产品具体功能的程序代码, 他们之间需要数据的交互（通讯）。<br />编写较小的项目时, 可以使用全局变量来传输数据。<br />但是设计较大的项目时, 大量使用全局变量使得代码的可移植性和可拓展性大大降低, 最好是通过接口（函数）来传输数据。</p><p>编写 <code>51</code> 单片机代码时, 用一个 <code>.c</code> 文件就可以完成所有功能, 包括寄存器配置、产品功能, 这是没有架构的程序。<br />编写 <code>stm32</code> 单片机代码时, 程序体量增加, 需要在工程文件中加入几个文件夹目录将硬件层和应用层代码分开, 此时会将一些不同的外设功能, 比如 LED、按键、串口等硬件层的外设文件代码分别写在不同的 <code>.C</code> 文件当中, 然后统一用函数接口去调用。</p><p>比如点亮一个 <code>LED</code> 灯, 直接在 <code>led.c</code> 文件中写一个驱动 <code>LED</code> 状态的函数交给外部程序调用。此时便成功将应用层和硬件层的代码分开, 应用层直接调用这个函数接口即可, 不会出现任何全局变量或数组。<br />而回调函数在这其中起到联系硬件层和应用层的作用, 使得硬件层代码与应用层代码隔离, 并让应用层能够方便地调用硬件层接口。</p><h2 id="回调函数的作用"><a class="markdownIt-Anchor" href="#回调函数的作用"></a> 回调函数的作用</h2><p>函数调用一般分为两种：输出型、输入型</p><ol><li>输出型：输出型函数是由程序员主导的角色, 是以数个形参作为输入, 调用函数控制外设。</li><li>输入型：响应式函数, 比如接收串口数据, 还比如按键检测的函数, 程序不知道什么时候会按下按键, 这些就要定义成响应式函数, 而响应式函数就是回调函数在单片机领域比较常用的一种。</li></ol><p>回调函数基本是用在输入型的处理中, 比如串口数据接收、按键检测、ADC数据采集, 它们输入的时间节点都是未知的, 这些都能够通过回调函数来处理。大大提升了移植性、实时性和封装程度。</p><h2 id="回调函数的写法"><a class="markdownIt-Anchor" href="#回调函数的写法"></a> 回调函数的写法</h2><p>基本的程序架构分为硬件抽象层和应用层。</p><p>硬件抽象层（硬件层）：</p><ol><li>驱动模块：这是与硬件直接交互的模块，如LED, LCD, 传感器，马达等的驱动。这些模块负责对硬件进行底层的控制，使得应用层可以通过抽象接口来使用硬件。</li><li>中断处理模块：对硬件产生的中断进行处理。例如，当硬件设备完成了某项操作或者需要CPU的注意时，它会产生一个中断信号。</li><li>操作系统模块：这通常包括任务调度、内存管理、设备管理、文件系统等。它提供一个抽象的接口，使得应用层可以不用考虑具体的硬件实现。</li><li>通讯协议模块：如SPI, I2C, UART, CAN, Ethernet等。这些模块是为了让硬件设备能够进行通讯。</li></ol><p>应用层：</p><ol><li>用户接口模块：例如，按钮的检测和处理，LCD的显示，声音的播放等。</li><li>业务逻辑模块：这是实现嵌入式设备具体功能的模块。例如，对于一个智能门锁，可能包含密码验证，指纹识别，远程控制等功能模块。</li><li>数据处理模块：例如，对于传感器获取的数据进行处理和分析。</li><li>网络通讯模块：例如，通过Wi-Fi或蓝牙与其他设备进行通讯，或者实现OTA（Over-the-Air Technology）远程升级等。</li></ol><p>这是一种常见的模块划分方法，但具体的划分方式取决于具体的产品需求和设计。例如，某些产品可能不需要网络通讯，或者需要额外的安全防护模块等。</p><p>而回调函数是数据在硬件层与应用层之间传输的关键。</p><h3 id="keyh"><a class="markdownIt-Anchor" href="#keyh"></a> key.h</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _KEY_H_</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _KEY_H_</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span></span></span><br><span class="line"><span class="class">&#123;</span><span class="comment">// 按键</span></span><br><span class="line">    KEY1,</span><br><span class="line">    KEY2,</span><br><span class="line">&#125;KEY_ID_TYPEDEF;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span></span></span><br><span class="line"><span class="class">&#123;</span><span class="comment">// 按键状态</span></span><br><span class="line">    KEY_IDLE,       <span class="comment">//按键空闲</span></span><br><span class="line">    KEY_PRESS,      <span class="comment">//按键短按</span></span><br><span class="line">    KEY_LONG_PRESS, <span class="comment">//按键长按</span></span><br><span class="line">    KEY_RELEASE,    <span class="comment">//按键释放</span></span><br><span class="line">&#125;KEY_STATE_TYPEDEF;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="title function_">void</span> <span class="params">(*pKeyScanCallback)</span> <span class="params">(KEY_ID_TYPEDEF keyID, KEY_STATE_TYPEDEF keySta)</span>;   <span class="comment">// 按键扫描回调函数</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">keyInit</span><span class="params">()</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">keyPoll</span><span class="params">()</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">keyScanCBSRegister</span><span class="params">(pKeyScanCallback pCBS)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">keyScanHandle</span><span class="params">(KEY_ID_TYPEDEF keyID, KEY_STATE_TYPEDEF keySta)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure><h3 id="keycpp"><a class="markdownIt-Anchor" href="#keycpp"></a> key.cpp</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;iostream&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;key.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">KEY_ID_TYPEDEF keyVal;</span><br><span class="line">KEY_STATE_TYPEDEF keySta;</span><br><span class="line">pKeyScanCallback pKeyScanCBS;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">keyInit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//按键初始化</span></span><br><span class="line">    keyVal = KEY1;</span><br><span class="line">    keySta = KEY_IDLE;</span><br><span class="line">    pKeyScanCBS = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">keyScanCBSRegister</span><span class="params">(pKeyScanCallback pCBS)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pKeyScanCBS == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        pKeyScanCBS = pCBS;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">keyPoll</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//按键轮询</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Please enter key value:&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;keyVal) == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\r\nPlease enter key state:&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;keySta) == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (pKeyScanCBS != <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">pKeyScanCBS</span>(keyVal,keySta);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="maincpp"><a class="markdownIt-Anchor" href="#maincpp"></a> main.cpp</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;key.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;key.cpp&quot;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">keyScanHandle</span><span class="params">(KEY_ID_TYPEDEF keyID,KEY_STATE_TYPEDEF keySta)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">//    if(keyID == KEY2)</span></span><br><span class="line"><span class="comment">//    &#123;</span></span><br><span class="line"><span class="comment">//        if(keySta == KEY_PRESS)</span></span><br><span class="line"><span class="comment">//        &#123;</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;keyID=%d, keySta=%d\r\n&quot;</span>,keyID,keySta);</span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">keyInit</span>();</span><br><span class="line">    <span class="built_in">keyScanCBSRegister</span>(&amp;keyScanHandle);</span><br><span class="line">    <span class="built_in">keyPoll</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;程序架构的核心理念或需求&lt;/li&gt;
+&lt;li&gt;掌握回调函数的作用&lt;/li&gt;
+&lt;li&gt;掌握回调函数的程序编写&lt;/li&gt;
+&lt;li&gt;掌握回调函数在产品中的应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;程序结构的核心理念和需求&quot;&gt;&lt;a class=&quot;markdownIt-A</summary>
+      
+    
+    
+    
+    <category term="2. 嵌入式" scheme="https://www.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="2.1. C语言基础" scheme="https://www.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="2.1.3. 程序架构内核" scheme="https://www.magicconch.top/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-3-%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84%E5%86%85%E6%A0%B8/"/>
+    
+    
+    <category term="嵌入式" scheme="https://www.magicconch.top/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="单片机" scheme="https://www.magicconch.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    <category term="C语言" scheme="https://www.magicconch.top/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="程序架构" scheme="https://www.magicconch.top/tags/%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>2.1.3.4-队列算法及产品应用</title>
@@ -650,33 +690,6 @@
     <category term="嵌入式" scheme="https://www.magicconch.top/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
     
     <category term="单片机" scheme="https://www.magicconch.top/tags/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1.4-为Melody主题的HEXO博客添加gitalk评论区</title>
-    <link href="https://www.magicconch.top/posts/54282.html"/>
-    <id>https://www.magicconch.top/posts/54282.html</id>
-    <published>2023-08-18T08:24:00.000Z</published>
-    <updated>2023-10-22T07:54:42.167Z</updated>
-    
-    <content type="html"><![CDATA[<hr /><p>2023.9.1 更新：不如直接利用github discussion部署Giscus，效果更好还更方便</p><hr /><p>担心博客有错误无法及时改正，所以在博客中加入评论区，gitalk评论区模块好处非常多，首先当然是免费，其次必须登录GitHub账号才能评论，有一定防灌水的作用。本人使用的HEXO主题是<a href="https://github.com/Molunerfinn/hexo-theme-melody"><strong>hexo-theme-melody</strong></a>，这个主题自带功能比较多，界面也比较简洁，也集成了gitalk模块，用户只需要注册应用并编辑配置文件即可加入gitalk模块</p><h2 id="创建存放评论的仓库"><a class="markdownIt-Anchor" href="#创建存放评论的仓库"></a> 创建存放评论的仓库</h2><p>gitalk的原理是将博客中的评论存放在github仓库的issues中。<br />最好不要用自己的主页仓库(<a href="http://xn--xxx-4l3e.github.io">即xxx.github.io</a>)作为存放评论的仓库，后续可能会出现一些问题，所以专门创建一个public仓库来存放评论。</p><p><img src="https://oss.magicconch.top/api/raw/?path=/img/1.4/create-github-public-repo.png" alt="create-github-public-repo.png" /></p><h2 id="创建github-oauth-application"><a class="markdownIt-Anchor" href="#创建github-oauth-application"></a> 创建github OAuth application</h2><p><a href="https://github.com/settings/applications/new">应用快捷注册地址</a></p><p>按照下图中填写<br /><img src="https://oss.magicconch.top/api/raw/?path=/img/1.4/register-github-OAuth-app.png" alt="register-github-OAuth-app.png" /></p><p>点击绿色的注册按钮，在新页面中点击&quot;Generate a new client secret&quot;，生成客户端密码，然后记录下&quot;Client ID&quot;和&quot;Client secrets&quot;，等会儿要填到hexo-theme-melody的配置文件&quot;_config.melody.yml&quot;中</p><h2 id="编辑_configmelodyyml并部署"><a class="markdownIt-Anchor" href="#编辑_configmelodyyml并部署"></a> 编辑&quot;_config.melody.yml&quot;并部署</h2><p>按照下图编辑好配置文件<br /><img src="https://oss.magicconch.top/api/raw/?path=/img/1.4/gitalk_config.melody.yml.png" alt="gitalk_config.melody.yml.png" /></p><p>然后就是喜闻乐见的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean;hexo g;hexo d</span><br></pre></td></tr></table></figure><p>部署成功！</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;hr /&gt;
-&lt;p&gt;2023.9.1 更新：不如直接利用github discussion部署Giscus，效果更好还更方便&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;担心博客有错误无法及时改正，所以在博客中加入评论区，gitalk评论区模块好处非常多，首先当然是免费，其次必须登录GitHub</summary>
-      
-    
-    
-    
-    <category term="1. HEXO" scheme="https://www.magicconch.top/categories/1-HEXO/"/>
-    
-    
-    <category term="HEXO" scheme="https://www.magicconch.top/tags/HEXO/"/>
     
   </entry>
   
