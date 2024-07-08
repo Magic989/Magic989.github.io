@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>MagicConch&#39;s Blog</title>
+  <title>Magic Conch&#39;s Blog</title>
   
   <subtitle>鱼相忘乎江湖，人相忘乎道术。</subtitle>
   <link href="https://www.magicconch.top/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://www.magicconch.top/</id>
   
   <author>
-    <name>MagicConch</name>
+    <name>Magic Conch</name>
     
   </author>
   
