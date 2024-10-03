@@ -8,20 +8,125 @@
 <meta property="og:image" content="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp">
 <meta property="article:author" content="MagicConch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp"><link rel="shortcut icon" href="https://oss.magicconch.top/api/raw/?path=/img/favicon.webp"><link rel="canonical" href="https://www.magicconch.top/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-DYGY9QND9W"></script><script>window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-DYGY9QND9W');
-</script><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp"><link rel="shortcut icon" href="https://oss.magicconch.top/api/raw/?path=/img/favicon.webp"><link rel="canonical" href="https://www.magicconch.top/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        if (name && globalFn[key][name]) return
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+          
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
   copy: {
     success: '复制成功',
-    error: '复制错误',
+    error: '复制失败',
     noSupport: '浏览器不支持'
   },
   relativeDate: {
@@ -57,449 +162,73 @@ gtag('config', 'G-DYGY9QND9W');
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-09-28 19:50:35'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7295638336607406" crossorigin="anonymous"></script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MagicConch's Blog" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link"><i class="fa-fw fas fa-link"></i><span> Links</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://oss.magicconch.top/zh-CN/"><i class="fa-fw fa-solid fa-cloud"></i><span> Netdisk</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/top_img.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="MagicConch's Blog"><span class="site-name">MagicConch's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link"><i class="fa-fw fas fa-link"></i><span> Links</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://oss.magicconch.top/zh-CN/"><i class="fa-fw fa-solid fa-cloud"></i><span> Netdisk</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">MagicConch's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Magic989" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #FF66FF;"></i></a><a class="social-icon" href="mailto:lintianbin88@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #66CCFF;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/13788.html" title="2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识">2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-20T08:41:00.000Z" title="发表于 2023-08-20 16:41:00">2023-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/">2.2. 单片机硬件基础</a></span></div><div class="content"> 电阻(Resistor)
-贴片电阻的识别方法(两种):
-三位：它的第一位和第二位为有效数字，第三位表示在有效数字后面所加“0”的个数．这一位不会出现字母。
-例如：“472”表示“4700Ω”；“151”表示“150”
-四位：前三位表示有效数字，第4位表示在有效数字后面所加“0”的个数。
-例如：“2702”表示27000Ω=27kΩ
- 电容
-电容器在调谐、旁路、耦合、滤波等电路中起着重要的作用。
-在直流电路中，电容器是相当于断路的。电容器是一种能够储藏电荷的元件，也是最常用的电子元件之一（通交流  隔直流）。
- 二极管
- 判别正、负电极
-
-观察外壳上的符号标记。通常在二极管的外壳上标有二极管的符号，带有三角形箭头的一端为正极，另一端是负极。
-观察外壳上的色点。在点接触二极管的外壳上，通常标有极性色点(白色或红色)。一般标有色点的一端即为正极。还有的二极管上标有色环，带色环的一端则为负极。
-以阻值较小的一次测量为准，黑表笔所接的一端为正极，红表笔所接的一端则为负极。
-观察二极管外壳，带有银色带一端为负极。
-
- 分类
-发光二极管、光电二极管、稳压管、面接触型二极管、点接触型二极管…
-（肖特 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9864.html" title="2.2.1-交流电丨直流电">2.2.1-交流电丨直流电</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-20T07:58:00.000Z" title="发表于 2023-08-20 15:58:00">2023-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/">2.2. 单片机硬件基础</a></span></div><div class="content"> 交流电(Alternating Current, 简称AC)
-家用单相交流电，工业用三相交流电，每一相有效值都为220V，峰值为311V，震荡频率为50hz，每两相之间的相位差为π3\frac{π}{3}3π​。
- 直流电(Direct Current,简称DC)
-电子产品中大多数为弱电，且为直流电。锂电池，输出电压3.7V。
-一般不会自己设计电源模块，直接购买合适的成品模块更节约成本。
-直流电与交流电的关系:
-在电源正常工作期间，恒定直流电 的电压大小和方向都不随时间的变化而变化，比如干电池。
-在电源正常工作期间，脉动直流电 的电压方向不变，但大小随时间变化。比如：50Hz的交流电经过二极管整流后得到的就是典型脉动直流电，半波整流得到的是50Hz的脉动直流电，如果是全波或桥式整流得到的就是100Hz的脉动直流电，它们只有经过滤波（用电感或电容）以后才变成平滑直流电，当然其中仍存在脉动成分（称纹波系数），大小视滤波电路的滤波效果。
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60885.html" title="2.1.2.7-C语言数组和多维数组的定义与赋值以及code、const关键字的使用">2.1.2.7-C语言数组和多维数组的定义与赋值以及code、const关键字的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-20T06:47:00.000Z" title="发表于 2023-08-20 14:47:00">2023-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> 数组
- 数组的定义
-指存储一个固定大小的、类型相同的顺序集合。数组用来存储一组类型相同的变量。
- 数组的语法结构
-数组定义语句的基本结构：
-1datatype arrayName[length];
-各部分定义：
-123datatype    // 数据类型arrayName   // 数组名称length      // 数组长度，不能为变量
-例：
-1char l602Dat[16];
- 定义与初始化数组的方法
-方法1：
-1char unm[10]=&#123;0,1,2,3,4,5,6,7,8,9&#125;;
-方法2：
-1char unm[]=&#123;0,1,2,3,4,5,6,7,8,9&#125;;
-在单片机程序中还有最常见的一种定义，是keil特有的关键字，对数组进行了修饰。
-例：char code str[7]=”LCD1602”;
-加了code之后，变量存储到ROM FLASH中；若没有code，则变量存储到RAM中。
-变量存储在ROM和RAM的区别：写入到ROM中的变量不可在程序运行过程中发生改变，而存放在RAM中的变量可以随着程序的运行不断改变。
-由于单片机追求 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/43750.html" title="2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)">2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T13:48:00.000Z" title="发表于 2023-08-19 21:48:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content">条件编译命令最主要还是在工程头文件中使用，主要是是属于硬件层的代码。
- #if语句的语法结构
-语法结构：
-123456789#if 表达式1    // 程序代码块1#elif 表达式2    // 程序代码块2#elif 表达式3    // 程序代码块3#else    // 程序代码块4#endif
-注意：表达式必须为一个整数型常量
- #if 表达式1
-若表达式1为真，则执行程序代码1；若为假，则不执行代码1 ，同时跳转到elif，去判断表达式2是否为真。若没有#elif，直接跳转到#else。若没有#else，直接跳转到#endif。
- #elif 表达式2
-若#if条件判断为假，则跳转到本语句，需要判断表达式2是否为真，若为真，则执行程序代码块2；若为假，则跳转到下面的语句继续判断。
- #else
-若以上的表达式皆假，则执行#else包含的程序代码块。
- #endif
-和#if是配套使用的，不能省略。
- (#if-#elif-#else-#endif)代码示例
-1234567891011121314151617#include &lt;stdio.h&gt;#define O ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27110.html" title="2.1.2.5-C语言#include-sfr-sbit关键字用法">2.1.2.5-C语言#include-sfr-sbit关键字用法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T13:18:00.000Z" title="发表于 2023-08-19 21:18:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> include关键字用法
-12345#include            // 包含一个源代码文件的头文件#include &lt;文件名&gt;   // 如果需要包含标准库头文件或者实现版本所提供的头文件#include “文件名”   // 如果需要包含针对程序所开发的源文件#include &lt;math.h&gt;#include “myfile.h”
-使用尖括号&lt; &gt;和双引号&quot; &quot;的区别在于头文件的搜索路径不同：
-
-使用尖括号&lt; &gt;，编译器会到系统路径下查找头文件；
-使用双引号&quot; &quot;，编译器首先在当前目录下查找头文件，如果没有找到，再到系统路径下查找。
-
-系统路径：在开发软件的INC文件夹中
-tip：双引号&quot; “比尖括号&lt; &gt;功能更加强大，可以导入工程中的其他函数，但是一般来讲我们会使用”&quot;引用自己的函数，而用&lt;&gt;引用官方库函数，提升代码可读性。
- sfr关键字用法（特殊功能寄存器sfr）
-写程序的过程就是对特殊功能寄存器赋值，sfr 定义特殊功能寄存器中的字节 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36944.html" title="2.1.2.4-C语言函数的定义及调用">2.1.2.4-C语言函数的定义及调用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T10:25:00.000Z" title="发表于 2023-08-19 18:25:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> C语言函数的定义及调用
-函数语法结构：
-1234返回参数变量类型 函数名（参数声明）&#123;    // 函数体&#125;
-返回参数变量类型：char/unsigned char/int/unsigned int/float/double/…
-定义主函数不要使用void，要用int，最后加上return 0。
-函数名：英文字母或者下划线开头，可由英文字母、下划线和数字组成。
-参数声明：可以说多个参数，也可以是无参数（void）
-例1：
-123456void Delay_1ms(void)    // 简单的延时函数，但因为没有指定单片机型号，所以i的大小并不准确&#123;    unsigned int i;    i = 1000;    while(i--);&#125;
-例2：
-12345int readkey(void)   // int函数示例&#123;    unsigned char KeyValue;    return KeyValue;&#125;
-例3：
-12345678void Delay_ms(unsigned int sec)&#123;     ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48231.html" title="2.1.2.3-C语言中常见语句的用法以及流程图的绘制">2.1.2.3-C语言中常见语句的用法以及流程图的绘制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T03:23:00.000Z" title="发表于 2023-08-19 11:23:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> 常见语句的用法
- C语言if语句格式用法
-例1：
-1234if(条件表达式)&#123;    // 语句1&#125;
-条件表达式成立      -&gt;  为真 1  -&gt;  可运行语句1
-条件表达式不成立    -&gt;  为假 0  -&gt;  不能运行语句1
-例2：
-12345678if(条件表达式)&#123;    // 语句1&#125;else&#123;    // 语句2&#125;
-应用实例：实现门磁开门检测
- C语言while语句用法
- while语句格式1（先判断再执行）
-1234while（表达式）&#123;    // 语句1&#125;；
-基本规则:   表达式如果成立    -&gt;  为真 1  -&gt;  执行语句1。
-通常用法:   表达式如果成立    -&gt;  为真 1  -&gt;  一直循环：while（1）
-用于单片机的任务轮询，在语句1中加入需要调用的任务列表（即任务函数），那么单片机就会轮流运行任务。
- while语句格式2（先执行再判断）
-1234do&#123;// 语句1&#125;while（表达式 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/41825.html" title="2.1.2.2-C语言中运算符的定义与应用">2.1.2.2-C语言中运算符的定义与应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T13:10:00.000Z" title="发表于 2023-08-18 21:10:00">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> C语言算数运算符
-
-
-
-运算符
-名称
-
-
-
-
-+
-加法运算符
-
-
--
-减法运算符
-
-
-*
-乘法运算符
-
-
-/
-除法运算符
-
-
-%
-求余运算符
-
-
-++
-自增运算符
-
-
-–
-自减运算符
-
-
-
-a和a的不同：
-1a++是先参与运算再自增，++a反之。
- C语言关系运算符
-
-
-
-运算符
-名称
-备注
-
-
-
-
-&gt;
-大于
-
-
-
-&lt;
-小于
-
-
-
-&gt;=
-大于等于
-常见错误：=&gt;
-
-
-&lt;=
-小于等于
-常见错误：=&lt;
-
-
-==
-等于
-
-
-
-!=
-不等于
-
-
-
-
-特别说明：
-12=   表示的是赋值==  判断功能
- 关系运算符的使用
-在关系运算中，0为假，其他数字都为真。
- 一般情况下配合if语句使用
-1234if(关系运算符的表达式)&#123;    //语句1&#125;
-如果关系运算符为真  则执行语句1
-关系运算符的表达式成立  -&gt;  运算结果为真    -&gt;  返回1   -&gt;  执行语句1
-关系运算符的表达式不成立    -&gt;  运算结果为假  -&gt;  返回0 -&gt;  不执行语句1
- 有时也在while语句中使用
-1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32138.html" title="2.1.2.1-C语言中变量的定义与应用">2.1.2.1-C语言中变量的定义与应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T12:10:00.000Z" title="发表于 2023-08-18 20:10:00">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> 变量的概念
-变量(官方定义)：是用来存储单片机/计算机系统中 计算的过程或结果数值的一个抽象概念
-变量：就是一种在程序执行过程中其值不断变化的量。
-常量：就是其定义之后数值不会变化的量
- 变量的数据类型
-
-
-
-
-类型
-适用范围
-定义方法
-
-
-
-
-布尔型
-（bool）1-真 0-假
-常用bit ,用bool和bit都能定义。
-
-
-字符型
-1byte，8个bit
-char
-
-
-整数型
-整数型与字符型存储的数据长度不一样
-int、short、long
-
-
-浮点型
-小数
-float、double
-
-
-
-不同单片机中不同的数据类型所对应的位数也有所不同。
-在stm32中，short为16bit，int和long为32bit。
-对于有符号的数据类型，最高位表示正负，1为负，0为正。
-单片机变量定义及其范围：
-
-
-
-数据类型
-关键字
-所占位数
-表示数的范围
-
-
-
-
-无符号字符型
-unsigned char
-8
-0 ~ 255
-
-
-有符号字符型
-char
-8
--128 ~ 127
-
-
-无符号整型
-unsigned int
-16
-0 ~ 65535
-
-
-有符号整型
-int
-16
--32768 ~ 32 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/45612.html" title="2.1.1.1-单片机基本理解">2.1.1.1-单片机基本理解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T12:05:00.000Z" title="发表于 2023-08-18 20:05:00">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-1-%E4%BA%86%E8%A7%A3%E5%8D%95%E7%89%87%E6%9C%BA/">2.1.1. 了解单片机</a></span></div><div class="content">很长一段时间以来在word上记了一些笔记，但却一直没能回头复习。再三斟酌，决定将笔记以博客的形式写出来，并借此机会对所学内容进行一次复习，我想应该不用太多时间就能搬运完。
-C语言基础将从单片机开始写，直接学习C语言未免过于乏味，但如果通过C语言在单片机上的应用来间接学习C语言，就能让理论与实际充分结合，达到事半功倍的效果。
- 单片机可以做什么
-单片机：CPU、存储器、IO接口、定时器集成到一个硅片上，具有小而完整的微型计算机系统。
-单片机使用灵活，经过二次硬件和软件开发，实现不同功能，满足不同需求。
-硬件工程师：根据单片机资源设计硬件电路、原理图设计、PCB绘制、硬件功能调试。
-软件工程师：单片机C语言基础、程序开发环境、程序的烧录、软件功能调试与测试。
- 单片机资源有哪些
-STC15W104接口资源介绍：
-
-
-
-名称
-资源数量或大小
-资源作用
-
-
-
-
-工作电压
-2.4-5.5V
-
-
-
-程序空间（FLASH ROM）
-4K=4096bytes
-用于存储单片机代码(code)
-
-
-SRAM
-128bytes
-用来存储单片机代码中的变量（变量的定义不能大于128字节）
-
-
-EEPROM
-1 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MagicConch</div><div class="author-info__description">孰能相与于无相与，相为于无相为？<br>孰能登天游雾，挠挑无极，相忘以生，无所终穷？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" href="mailto:lintianbin88@gmail.com"><i class="fas fa-envelope"></i><span>contact me !</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Magic989" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #FF66FF;"></i></a><a class="social-icon" href="mailto:lintianbin88@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #66CCFF;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有缘人，你来啦？首先你要开心，其次都是其次！<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于本人才疏学浅，难免会有纰漏，如果发现错误，请务必通过 Email 或者文章末尾的评论区联系我。注意: Livere评论系统似乎没有邮件通知, 我可能收不到消息。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4ced47dc.html" title="2.1.3.5-回调函数及产品应用">2.1.3.5-回调函数及产品应用</a><time datetime="2023-12-11T06:58:00.000Z" title="发表于 2023-12-11 14:58:00">2023-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ae477bcf.html" title="2.1.3.4-队列算法及产品应用">2.1.3.4-队列算法及产品应用</a><time datetime="2023-10-13T13:21:00.000Z" title="发表于 2023-10-13 21:21:00">2023-10-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e47a3aac.html" title="2.1.3.3-结构体使用及产品应用">2.1.3.3-结构体使用及产品应用</a><time datetime="2023-10-12T01:51:00.000Z" title="发表于 2023-10-12 09:51:00">2023-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/f47db864.html" title="2.1.3.2-指针基础及产品应用">2.1.3.2-指针基础及产品应用</a><time datetime="2023-10-04T13:22:00.000Z" title="发表于 2023-10-04 21:22:00">2023-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/642554d6.html" title="2.1.3.1-从typedef和#define的差异理解typedef关键字的使用">2.1.3.1-从typedef和#define的差异理解typedef关键字的使用</a><time datetime="2023-10-03T09:25:00.000Z" title="发表于 2023-10-03 17:25:00">2023-10-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+  postUpdate: '2024-10-03 22:59:56'
+}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7295638336607406" crossorigin="anonymous"></script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="MagicConch's Blog" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(/img/top_img.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link"><i class="fa-fw fas fa-link"></i><span> Links</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://oss.magicconch.top/zh-CN/"><i class="fa-fw fa-solid fa-cloud"></i><span> Netdisk</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/top_img.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">MagicConch's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link"><i class="fa-fw fas fa-link"></i><span> Links</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://oss.magicconch.top/zh-CN/"><i class="fa-fw fa-solid fa-cloud"></i><span> Netdisk</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">MagicConch's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/Magic989" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #FF66FF;"></i></a><a class="social-icon" href="mailto:lintianbin88@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #66CCFF;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/13788.html" title="2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识">2.2.2-电阻丨电容丨二极管丨三极管 - 基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-20T08:41:00.000Z" title="发表于 2023-08-20 16:41:00">2023-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/">2.2. 单片机硬件基础</a></span></div><div class="content"> 电阻(Resistor) 贴片电阻的识别方法(两种): 三位：它的第一位和第二位为有效数字，第三位表示在有效数字后面所加“0”的个数．这一位不会出现字母。 例如：“472”表示“4700Ω”；“151”表示“150” 四位：前三位表示有效数字，第4位表示在有效数字后面所加“0”的个数。 例如：“2702”表示27000Ω=27kΩ  电容 电容器在调谐、旁路、耦合、滤波等电路中起着重要的作用。 在直流电路中，电容器是相当于断路的。电容器是一种能够储藏电荷的元件，也是最常用的电子元件之一（通交流  隔直流）。  二极管  判别正、负电极  观察外壳上的符号标记。通常在二极管的外壳上标有二极管的符号，带有三角形箭头的一端为正极，另一端是负极。 观察外壳上的色点。在点接触二极管的外壳上，通常标有极性色点(白色或红色)。一般标有色点的一端即为正极。还有的二极管上标有色环，带色环的一端则为负极。 以阻值较小的一次测量为准，黑表笔所接的一端为正极，红表笔所接的一端则为负极。 观察二极管外壳，带有银色带一端为负极。  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9864.html" title="2.2.1-交流电丨直流电">2.2.1-交流电丨直流电</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-20T07:58:00.000Z" title="发表于 2023-08-20 15:58:00">2023-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/">2.2. 单片机硬件基础</a></span></div><div class="content"> 交流电(Alternating Current, 简称AC) 家用单相交流电，工业用三相交流电，每一相有效值都为220V，峰值为311V，震荡频率为50hz，每两相之间的相位差为π3\frac{π}{3}3π​。  直流电(Direct Current,简称DC) 电子产品中大多数为弱电，且为直流电。锂电池，输出电压3.7V。 一般不会自己设计电源模块，直接购买合适的成品模块更节约成本。 直流电与交流电的关系: 在电源正常工作期间，恒定直流电 的电压大小和方向都不随时间的变化而变化，比如干电池。 在电源正常工作期间，脉动直流电 的电压方向不变，但大小随时间变化。比如：50Hz的交流电经过二极管整流后得到的就是典型脉动直流电，半波整流得到的是50Hz的脉动直流电，如果是全波或桥式整流得到的就是100Hz的脉动直流电，它们只有经过滤波（用电感或电容）以后才变成平滑直流电，当然其中仍存在脉动成分（称纹波系数），大小视滤波电路的滤波效果。 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60885.html" title="2.1.2.7-C语言数组和多维数组的定义与赋值以及code、const关键字的使用">2.1.2.7-C语言数组和多维数组的定义与赋值以及code、const关键字的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-20T06:47:00.000Z" title="发表于 2023-08-20 14:47:00">2023-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> 数组  数组的定义 指存储一个固定大小的、类型相同的顺序集合。数组用来存储一组类型相同的变量。  数组的语法结构 数组定义语句的基本结构： 1datatype arrayName[length]; 各部分定义： 123datatype    // 数据类型arrayName   // 数组名称length      // 数组长度，不能为变量 例： 1char l602Dat[16];  定义与初始化数组的方法 方法1： 1char unm[10]=&#123;0,1,2,3,4,5,6,7,8,9&#125;; 方法2： 1char unm[]=&#123;0,1,2,3,4,5,6,7,8,9&#125;; 在单片机程序中还有最常见的一种定义，是keil特有的关键字，对数组进行了修饰。 例：char code str[7]=”LCD1602”; 加了code之后，变量存储到ROM...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/43750.html" title="2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)">2.1.2.6-C语言条件预编译命令(#if-#ifdef-#ifndef)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T13:48:00.000Z" title="发表于 2023-08-19 21:48:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content">条件编译命令最主要还是在工程头文件中使用，主要是是属于硬件层的代码。  #if语句的语法结构 语法结构： 123456789#if 表达式1    // 程序代码块1#elif 表达式2    // 程序代码块2#elif 表达式3    // 程序代码块3#else    // 程序代码块4#endif 注意：表达式必须为一个整数型常量  #if 表达式1 若表达式1为真，则执行程序代码1；若为假，则不执行代码1 ，同时跳转到elif，去判断表达式2是否为真。若没有#elif，直接跳转到#else。若没有#else，直接跳转到#endif。  #elif 表达式2 若#if条件判断为假，则跳转到本语句，需要判断表达式2是否为真，若为真，则执行程序代码块2；若为假，则跳转到下面的语句继续判断。  #else 若以上的表达式皆假，则执行#else包含的程序代码块。  #endif 和#if是配套使用的，不能省略。  (#if-#elif-#else-#endif)代码示例 1234567891011121314151617#include...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27110.html" title="2.1.2.5-C语言#include-sfr-sbit关键字用法">2.1.2.5-C语言#include-sfr-sbit关键字用法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T13:18:00.000Z" title="发表于 2023-08-19 21:18:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> include关键字用法 12345#include            // 包含一个源代码文件的头文件#include &lt;文件名&gt;   // 如果需要包含标准库头文件或者实现版本所提供的头文件#include “文件名”   // 如果需要包含针对程序所开发的源文件#include &lt;math.h&gt;#include “myfile.h” 使用尖括号&lt; &gt;和双引号&quot; &quot;的区别在于头文件的搜索路径不同：  使用尖括号&lt; &gt;，编译器会到系统路径下查找头文件； 使用双引号&quot; &quot;，编译器首先在当前目录下查找头文件，如果没有找到，再到系统路径下查找。  系统路径：在开发软件的INC文件夹中 tip：双引号&quot; “比尖括号&lt; &gt;功能更加强大，可以导入工程中的其他函数，但是一般来讲我们会使用”&quot;引用自己的函数，而用&lt;&gt;引用官方库函数，提升代码可读性。  sfr关键字用法（特殊功能寄存器sfr） 写程序的过程就是对特殊功能寄存器赋值，sfr...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36944.html" title="2.1.2.4-C语言函数的定义及调用">2.1.2.4-C语言函数的定义及调用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T10:25:00.000Z" title="发表于 2023-08-19 18:25:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> C语言函数的定义及调用 函数语法结构： 1234返回参数变量类型 函数名（参数声明）&#123;    // 函数体&#125; 返回参数变量类型：char/unsigned char/int/unsigned int/float/double/… 定义主函数不要使用void，要用int，最后加上return 0。 函数名：英文字母或者下划线开头，可由英文字母、下划线和数字组成。 参数声明：可以说多个参数，也可以是无参数（void） 例1： 123456void Delay_1ms(void)    // 简单的延时函数，但因为没有指定单片机型号，所以i的大小并不准确&#123;    unsigned int i;    i = 1000;    while(i--);&#125; 例2： 12345int readkey(void)   // int函数示例&#123;    unsigned char KeyValue;    return KeyValue;&#125; 例3： 12345678void Delay_ms(unsigned int sec)&#123;...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48231.html" title="2.1.2.3-C语言中常见语句的用法以及流程图的绘制">2.1.2.3-C语言中常见语句的用法以及流程图的绘制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T03:23:00.000Z" title="发表于 2023-08-19 11:23:00">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> 常见语句的用法  C语言if语句格式用法 例1： 1234if(条件表达式)&#123;    // 语句1&#125; 条件表达式成立      -&gt;  为真 1  -&gt;  可运行语句1 条件表达式不成立    -&gt;  为假 0  -&gt;  不能运行语句1 例2： 12345678if(条件表达式)&#123;    // 语句1&#125;else&#123;    // 语句2&#125; 应用实例：实现门磁开门检测  C语言while语句用法  while语句格式1（先判断再执行） 1234while（表达式）&#123;    // 语句1&#125;； 基本规则:   表达式如果成立    -&gt;  为真 1  -&gt;  执行语句1。 通常用法:   表达式如果成立    -&gt;  为真 1  -&gt;  一直循环：while（1） 用于单片机的任务轮询，在语句1中加入需要调用的任务列表（即任务函数），那么单片机就会轮流运行任务。  while语句格式2（先执行再判断） 1234do&#123;//...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/41825.html" title="2.1.2.2-C语言中运算符的定义与应用">2.1.2.2-C语言中运算符的定义与应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T13:10:00.000Z" title="发表于 2023-08-18 21:10:00">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> C语言算数运算符    运算符 名称     + 加法运算符   - 减法运算符   * 乘法运算符   / 除法运算符   % 求余运算符   ++ 自增运算符   – 自减运算符    a和a的不同： 1a++是先参与运算再自增，++a反之。  C语言关系运算符    运算符 名称 备注     &gt; 大于    &lt; 小于    &gt;= 大于等于 常见错误：=&gt;   &lt;= 小于等于 常见错误：=&lt;   == 等于    != 不等于     特别说明： 12=   表示的是赋值==  判断功能  关系运算符的使用 在关系运算中，0为假，其他数字都为真。  一般情况下配合if语句使用 1234if(关系运算符的表达式)&#123;    //语句1&#125; 如果关系运算符为真  则执行语句1 关系运算符的表达式成立  -&gt;  运算结果为真    -&gt;  返回1   -&gt;  执行语句1 关系运算符的表达式不成立    -&gt;  运算结果为假  -&gt;  返回0 -&gt;  不执行语句1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32138.html" title="2.1.2.1-C语言中变量的定义与应用">2.1.2.1-C语言中变量的定义与应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T12:10:00.000Z" title="发表于 2023-08-18 20:10:00">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2.1.2. C语言基本语法</a></span></div><div class="content"> 变量的概念 变量(官方定义)：是用来存储单片机/计算机系统中 计算的过程或结果数值的一个抽象概念 变量：就是一种在程序执行过程中其值不断变化的量。 常量：就是其定义之后数值不会变化的量  变量的数据类型     类型 适用范围 定义方法     布尔型 （bool）1-真 0-假 常用bit ,用bool和bit都能定义。   字符型 1byte，8个bit char   整数型 整数型与字符型存储的数据长度不一样 int、short、long   浮点型 小数 float、double    不同单片机中不同的数据类型所对应的位数也有所不同。 在stm32中，short为16bit，int和long为32bit。 对于有符号的数据类型，最高位表示正负，1为负，0为正。 单片机变量定义及其范围：    数据类型 关键字 所占位数 表示数的范围     无符号字符型 unsigned char 8 0 ~ 255   有符号字符型 char 8 -128 ~ 127   无符号整型 unsigned int 16 0 ~ 65535   有符号整型 int 16 -32768...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/45612.html" title="2.1.1.1-单片机基本理解">2.1.1.1-单片机基本理解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T12:05:00.000Z" title="发表于 2023-08-18 20:05:00">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/">2. 嵌入式</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">2.1. C语言基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-1-%E4%BA%86%E8%A7%A3%E5%8D%95%E7%89%87%E6%9C%BA/">2.1.1. 了解单片机</a></span></div><div class="content">很长一段时间以来在word上记了一些笔记，但却一直没能回头复习。再三斟酌，决定将笔记以博客的形式写出来，并借此机会对所学内容进行一次复习，我想应该不用太多时间就能搬运完。 C语言基础将从单片机开始写，直接学习C语言未免过于乏味，但如果通过C语言在单片机上的应用来间接学习C语言，就能让理论与实际充分结合，达到事半功倍的效果。  单片机可以做什么 单片机：CPU、存储器、IO接口、定时器集成到一个硅片上，具有小而完整的微型计算机系统。 单片机使用灵活，经过二次硬件和软件开发，实现不同功能，满足不同需求。 硬件工程师：根据单片机资源设计硬件电路、原理图设计、PCB绘制、硬件功能调试。 软件工程师：单片机C语言基础、程序开发环境、程序的烧录、软件功能调试与测试。  单片机资源有哪些 STC15W104接口资源介绍：    名称 资源数量或大小 资源作用     工作电压 2.4-5.5V    程序空间（FLASH...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info is-center"><div class="avatar-img"><img src="https://oss.magicconch.top/api/raw/?path=/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">MagicConch</div><div class="author-info-description">孰能相与于无相与，相为于无相为？<br>孰能登天游雾，挠挑无极，相忘以生，无所终穷？</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" href="mailto:lintianbin88@gmail.com"><i class="fab fa-github"></i><span>contact me !</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Magic989" target="_blank" title="GitHub"><i class="fab fa-github" style="color: #FF66FF;"></i></a><a class="social-icon" href="mailto:lintianbin88@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #66CCFF;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有缘人，你来啦？首先你要开心，其次都是其次！<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于本人才疏学浅，难免会有纰漏，如果发现错误，请务必通过 Email 或者文章末尾的评论区联系我。注意: Livere评论系统似乎没有邮件通知, 我可能收不到消息。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4ced47dc.html" title="2.1.3.5-回调函数及产品应用">2.1.3.5-回调函数及产品应用</a><time datetime="2023-12-11T06:58:00.000Z" title="发表于 2023-12-11 14:58:00">2023-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ae477bcf.html" title="2.1.3.4-队列算法及产品应用">2.1.3.4-队列算法及产品应用</a><time datetime="2023-10-13T13:21:00.000Z" title="发表于 2023-10-13 21:21:00">2023-10-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e47a3aac.html" title="2.1.3.3-结构体使用及产品应用">2.1.3.3-结构体使用及产品应用</a><time datetime="2023-10-12T01:51:00.000Z" title="发表于 2023-10-12 09:51:00">2023-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/f47db864.html" title="2.1.3.2-指针基础及产品应用">2.1.3.2-指针基础及产品应用</a><time datetime="2023-10-04T13:22:00.000Z" title="发表于 2023-10-04 21:22:00">2023-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/642554d6.html" title="2.1.3.1-从typedef和#define的差异理解typedef关键字的使用">2.1.3.1-从typedef和#define的差异理解typedef关键字的使用</a><time datetime="2023-10-03T09:25:00.000Z" title="发表于 2023-10-03 17:25:00">2023-10-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-HEXO/"><span class="card-category-list-name">1. HEXO</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/"><span class="card-category-list-name">2. 嵌入式</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">2.1. C语言基础</span><span class="card-category-list-count">13</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-1-%E4%BA%86%E8%A7%A3%E5%8D%95%E7%89%87%E6%9C%BA/"><span class="card-category-list-name">2.1.1. 了解单片机</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-2-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"><span class="card-category-list-name">2.1.2. C语言基本语法</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-1-C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/2-1-3-%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84%E5%86%85%E6%A0%B8/"><span class="card-category-list-name">2.1.3. 程序架构内核</span><span class="card-category-list-count">5</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-2-%E5%8D%95%E7%89%87%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">2.2. 单片机硬件基础</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-%E5%B5%8C%E5%85%A5%E5%BC%8F/2-3-%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE%E4%B8%80%EF%BC%9A%E6%97%A0%E7%BA%BF%E9%97%A8%E7%A3%81%E6%8E%A2%E6%B5%8B%E5%99%A8/"><span class="card-category-list-name">2.3. 实战项目一：无线门磁探测器</span><span class="card-category-list-count">3</span></a></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">项目实战</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.1em; color: #999">硬件</a> <a href="/tags/HEXO/" style="font-size: 1.23em; color: #999ea6">HEXO</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.5em; color: #99a9bf">单片机</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 1.5em; color: #99a9bf">嵌入式</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.37em; color: #99a4b2">C语言</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/" style="font-size: 1.23em; color: #999ea6">程序架构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">15</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">24</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">30.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-28T11:50:34.848Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background: #00000000"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By MagicConch</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
-  if (typeof pangu === 'object') pangu.autoSpacingPage()
-  else {
-    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
-      .then(() => {
-        pangu.autoSpacingPage()
-      })
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 1.37em; color: #99a4b2">C语言</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" style="font-size: 1.1em; color: #999">项目实战</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.1em; color: #999">硬件</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E6%9E%B6%E6%9E%84/" style="font-size: 1.23em; color: #999ea6">程序架构</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 1.5em; color: #99a9bf">嵌入式</a> <a href="/tags/HEXO/" style="font-size: 1.23em; color: #999ea6">HEXO</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.5em; color: #99a9bf">单片机</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/12/">
+          <span class="card-archive-list-date">十二月 2023</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/10/">
+          <span class="card-archive-list-date">十月 2023</span>
+          <span class="card-archive-list-count">4</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/09/">
+          <span class="card-archive-list-date">九月 2023</span>
+          <span class="card-archive-list-count">4</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/08/">
+          <span class="card-archive-list-date">八月 2023</span>
+          <span class="card-archive-list-count">15</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">24</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">30.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-10-03T14:59:56.348Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-color: #00000000;"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By MagicConch</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>(() => {
+  const panguFn = () => {
+    if (typeof pangu === 'object') pangu.autoSpacingPage()
+    else {
+      btf.getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+        .then(() => {
+          pangu.autoSpacingPage()
+        })
+    }
   }
-}
 
-function panguInit () {
-  if (false){
-    GLOBAL_CONFIG_SITE.isPost && panguFn()
-  } else {
-    panguFn()
+  const panguInit = () => {
+    if (false){
+      GLOBAL_CONFIG_SITE.isPost && panguFn()
+    } else {
+      panguFn()
+    }
   }
-}
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>window.typedJSFn = {
-  init: (str) => {
+  btf.addGlobalFn('pjaxComplete', panguInit, 'pangu')
+  document.addEventListener('DOMContentLoaded', panguInit)
+})()</script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,
       startDelay: 300,
@@ -508,18 +237,19 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-
       backSpeed: 50,
     }, null))
   },
-  run: (subtitleType) => {
+  run: subtitleType => {
     if (false) {
       if (typeof Typed === 'function') {
         subtitleType()
       } else {
-        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
       }
     } else {
       subtitleType()
     }
   }
 }
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
 </script><script>function subtitleType () {
   if (false) {
     typedJSFn.init(["鱼相忘乎江湖，人相忘乎道术。"])
@@ -531,70 +261,67 @@ typedJSFn.run(subtitleType)</script></div><div class="aplayer no-destroy" data-i
 POWERMODE.shake = false;
 POWERMODE.mobile = true;
 document.body.addEventListener('input', POWERMODE);
-</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: true,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-
-  // removeEventListener
-  btf.removeGlobalFnEvent('pjax')
-  btf.removeGlobalFnEvent('themeChange')
-
-  document.getElementById('rightside').classList.remove('rightside-show')
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
       }
     }
   }
 
-  typeof typed === 'object' && typed.destroy()
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
-  typeof disqusjs === 'object' && disqusjs.destroy()
-})
-
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
-
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
   })
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', 'G-DYGY9QND9W', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
-
-document.addEventListener('pjax:error', e => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
